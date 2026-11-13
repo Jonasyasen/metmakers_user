@@ -1,0 +1,1686 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>elearn-1 documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="./" class="navbar-brand">elearn-1 documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content modules">
+                   <div class="content-data">
+
+
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Modules</li>
+</ol>
+<div class="container-fluid modules">
+    <div class="row">
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">AddNewCardPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/AddNewCardPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/AddNewCardPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">AddNewCardPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/AddNewCardPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">AppModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/AppModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/AppModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">AppRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/AppRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">AuthPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/AuthPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/AuthPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">AuthPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/AuthPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">BookmarkPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/BookmarkPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/BookmarkPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">BookmarkPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/BookmarkPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">CategoriesPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/CategoriesPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/CategoriesPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">CategoriesPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/CategoriesPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">ChatsPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/ChatsPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/ChatsPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">ChatsPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/ChatsPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">CountryCodePickerPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/CountryCodePickerPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/CountryCodePickerPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">CountryCodePickerPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/CountryCodePickerPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">CourseDetailsPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/CourseDetailsPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/CourseDetailsPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">CourseDetailsPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/CourseDetailsPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">CreatePinPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/CreatePinPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/CreatePinPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">CreatePinPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/CreatePinPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">CurriculcumPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/CurriculcumPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/CurriculcumPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">CurriculcumPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/CurriculcumPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">EditProfilePageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/EditProfilePageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/EditProfilePageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">EditProfilePageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/EditProfilePageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">EReceiptPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/EReceiptPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/EReceiptPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">EReceiptPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/EReceiptPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">FillProfilePageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/FillProfilePageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/FillProfilePageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">FillProfilePageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/FillProfilePageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">FilterPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/FilterPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/FilterPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">FilterPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/FilterPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">FingerPrintPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/FingerPrintPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/FingerPrintPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">FingerPrintPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/FingerPrintPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">ForgotPasswordPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/ForgotPasswordPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/ForgotPasswordPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">ForgotPasswordPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/ForgotPasswordPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">HomePageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/HomePageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/HomePageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">HomePageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/HomePageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">InboxPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/InboxPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/InboxPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">InboxPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/InboxPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">InviteFriendsPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/InviteFriendsPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/InviteFriendsPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">InviteFriendsPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/InviteFriendsPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">LanguagesPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/LanguagesPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/LanguagesPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">LanguagesPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/LanguagesPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">LoginPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/LoginPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/LoginPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">LoginPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/LoginPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">MentorDetailsPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/MentorDetailsPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/MentorDetailsPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">MentorDetailsPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/MentorDetailsPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">MyCoursesDetailsPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/MyCoursesDetailsPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/MyCoursesDetailsPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">MyCoursesDetailsPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/MyCoursesDetailsPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">MyCoursesPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/MyCoursesPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/MyCoursesPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">MyCoursesPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/MyCoursesPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">NotificationSettingsPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/NotificationSettingsPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/NotificationSettingsPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">NotificationSettingsPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/NotificationSettingsPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">NotificationsPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/NotificationsPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/NotificationsPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">NotificationsPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/NotificationsPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">OnlineCoursesPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/OnlineCoursesPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/OnlineCoursesPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">OnlineCoursesPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/OnlineCoursesPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">PaymentMethodsPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/PaymentMethodsPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/PaymentMethodsPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">PaymentMethodsPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/PaymentMethodsPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">PaymentOptionsPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/PaymentOptionsPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/PaymentOptionsPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">PaymentOptionsPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/PaymentOptionsPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">PaymentSuccessModalPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/PaymentSuccessModalPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/PaymentSuccessModalPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">PaymentSuccessModalPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/PaymentSuccessModalPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">ProfilePageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/ProfilePageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/ProfilePageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">ProfilePageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/ProfilePageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">RegisterPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/RegisterPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/RegisterPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">RegisterPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/RegisterPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">RemoveBookmarkModalPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/RemoveBookmarkModalPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/RemoveBookmarkModalPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">RemoveBookmarkModalPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/RemoveBookmarkModalPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">ReviewsPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/ReviewsPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/ReviewsPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">ReviewsPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/ReviewsPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">SearchPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/SearchPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/SearchPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">SearchPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/SearchPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">SecurityPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/SecurityPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/SecurityPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">SecurityPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/SecurityPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">SuccessPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/SuccessPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/SuccessPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">SuccessPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/SuccessPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">TabsPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/TabsPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/TabsPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">TabsPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/TabsPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">TermsPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/TermsPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/TermsPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">TermsPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/TermsPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">TopCoursesPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/TopCoursesPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/TopCoursesPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">TopCoursesPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/TopCoursesPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">TopMentorsPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/TopMentorsPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/TopMentorsPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">TopMentorsPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/TopMentorsPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">TransactionPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/TransactionPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/TransactionPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">TransactionPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/TransactionPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">VideoCallPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/VideoCallPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/VideoCallPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">VideoCallPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/VideoCallPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">VideoPlayerPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/VideoPlayerPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/VideoPlayerPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">VideoPlayerPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/VideoPlayerPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">ViewCertificatePageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/ViewCertificatePageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/ViewCertificatePageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">ViewCertificatePageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/ViewCertificatePageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">WelcomePageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/WelcomePageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/WelcomePageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">WelcomePageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/WelcomePageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">WriteReviewsPageModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/WriteReviewsPageModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/WriteReviewsPageModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">WriteReviewsPageRoutingModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p class="no-graph">
+                                    No graph available.
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/WriteReviewsPageRoutingModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'modules';
+            var COMPODOC_CURRENT_PAGE_URL = 'modules.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

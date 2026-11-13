@@ -1,0 +1,54 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : E-Learning-1 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="dark">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Payment Option</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="payment-option-screen">
+    <ion-card mode="ios" class="card-content">
+      <ion-label class="name">PayPal</ion-label>
+      <ion-label class="title">Connected</ion-label>
+    </ion-card>
+    <ion-card mode="ios" class="card-content">
+      <ion-label class="name">Google Pay</ion-label>
+      <ion-label class="title">Connected</ion-label>
+    </ion-card>
+    <ion-card mode="ios" class="card-content">
+      <ion-label class="name">Apple Pay</ion-label>
+      <ion-label class="title">Connected</ion-label>
+    </ion-card>
+    <ion-card mode="ios" class="card-content">
+      <ion-label class="name">RazorPay</ion-label>
+      <ion-label class="title">Connected</ion-label>
+    </ion-card>
+    <ion-card mode="ios" class="card-content">
+      <ion-label class="name">**** **** **** 9638</ion-label>
+      <ion-label class="title">Connected</ion-label>
+    </ion-card>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div class="next-btn-login ion-activatable ripple-parent" [style.width.%]="100" (click)="addNewCard()">
+      <ion-ripple-effect></ion-ripple-effect>
+      <ion-label class="lbl">Add New Card</ion-label>
+      <div class="btn">
+        <ion-icon name="arrow-forward-outline" color="primary"></ion-icon>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-footer>

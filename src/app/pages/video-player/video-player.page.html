@@ -1,0 +1,26 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : E-Learning-1 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="md" color="dark">
+    <ion-buttons slot="end">
+      <ion-button (click)="close()" color="light">
+        <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="video-screen">
+    <video id="my_video_1" class="video-js vjs-default-skin" width="640px" height="267px" controls preload="none"
+      poster='assets/images/courses/cp3.png' data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'
+      webkit-playsinline [playsInline]="true">
+      <source src="assets/images/videos/video.mp4" type='video/mp4' />
+      <source src="assets/images/videos/video.mp4" type='video/webm' />
+    </video>
+  </div>
+</ion-content>

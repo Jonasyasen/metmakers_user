@@ -1,0 +1,33 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : E-Learning-1 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-content class="ion-padding">
+  <div class="success-page">
+    <div id="confettis">
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+    </div>
+    <img src="assets/images/images/check.png" alt="" class="img">
+    <ion-label class="title">Congratulations</ion-label>
+    <ion-label class="sub-title">Your Payment is Successfully. Purchase a New Course</ion-label>
+    <ion-label class="view-btn" (click)="onClose('watch')">Watch the Course</ion-label>
+    <div class="next-btn-login ion-activatable ripple-parent" [style.width.%]="100" (click)="onClose('e-receipt')">
+      <ion-ripple-effect></ion-ripple-effect>
+      <ion-label class="lbl">E - Receipt</ion-label>
+      <div class="btn">
+        <ion-icon name="arrow-forward-outline" color="primary"></ion-icon>
+      </div>
+    </div>
+  </div>
+</ion-content>

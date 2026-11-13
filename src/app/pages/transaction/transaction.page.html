@@ -1,0 +1,89 @@
+<ion-content class="ion-padding">
+
+  <ion-searchbar
+    [(ngModel)]="searchTerm"
+    (ionInput)="onSearchChange()"
+    placeholder="Search for a component...">
+  </ion-searchbar>
+
+  <div class="category-bar">
+    <ion-icon name="chevron-back-outline" class="scroll-btn" (click)="scrollLeft()"></ion-icon>
+
+    <div class="category-scroll" #categoryScroll>
+      <button
+        class="category-button"
+        *ngFor="let cat of categories"
+        [class.selected]="cat === selectedCategory"
+        (click)="selectCategory(cat)">
+        {{ cat }}
+      </button>
+    </div>
+
+    <ion-icon name="chevron-forward-outline" class="scroll-btn" (click)="scrollRight()"></ion-icon>
+  </div>
+
+  <div class="product-grid">
+    <div *ngFor="let item of filteredComponents" class="product-card">
+      <img [src]="item.image" alt="{{ item.name }}" />
+
+      <ion-card-header>
+        <ion-card-title>{{ item.name }}</ion-card-title>
+        <ion-card-subtitle>{{ item.category }}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <p>{{ item.description }}</p>
+      </ion-card-content>
+
+      <ion-button expand="block" (click)="openModal(item)">
+        {{ item.available ? 'Borrow' : 'Notify Me' }}
+      </ion-button>
+    </div>
+  </div>
+
+  <ion-modal [isOpen]="showModal" (didDismiss)="closeModal()" class="custom-modal"   [breakpoints]="[0, 0.5, 1]"
+  [initialBreakpoint]="0.6">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar color="light">
+          <ion-title>{{ selectedItem?.name }}</ion-title>
+          <ion-buttons slot="end">
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content class="ion-padding">
+        <div *ngIf="selectedItem">
+          <p><strong>Category:</strong> {{ selectedItem.category }}</p>
+          <p><strong>Description:</strong> {{ selectedItem.description }}</p>
+
+          <ng-container *ngIf="selectedItem.available">
+            <p><strong>Available Quantity:</strong> {{ availableQuantity }}</p>
+
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <ion-label>Quantity to Borrow</ion-label>
+              <ion-button size="small" shape="round" fill="solid" color="warning" (click)="borrowQuantity = reduceQuantity()">-</ion-button>
+              <ion-input type="number" [(ngModel)]="borrowQuantity" min="1" [max]="availableQuantity" style="width: 60px; text-align: center;"></ion-input>
+              <ion-button size="small" shape="round" fill="solid" color="warning" (click)="borrowQuantity = increaseQuantity()">+</ion-button>
+            </div>
+          </ng-container>
+
+          <ion-item>
+            <ion-label position="stacked">Email (optional)</ion-label>
+            <ion-input type="email" [(ngModel)]="userEmail"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">Phone Number</ion-label>
+            <ion-input type="tel" [(ngModel)]="userPhone"></ion-input>
+          </ion-item>
+
+          <ion-button expand="block" class="ion-margin-top" (click)="submitRequest()" style="--background: #feda00; color: black; font-weight: bold; border-radius: 12px;">
+            {{ selectedItem.available ? 'Confirm Borrow Request' : 'Notify Me When Available' }}
+          </ion-button>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+</ion-content>

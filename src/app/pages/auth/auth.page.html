@@ -1,0 +1,35 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : E-Learning-1 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="auth-screen">
+    <div class="logo-content">
+      <img src="assets/images/images/extra-image.png" alt="" class="img">
+    </div>
+    <ion-label class="title">Let's you in</ion-label>
+    
+    <!-- Single button to sign in using MSAL -->
+    <div class="next-btn ion-activatable ripple-parent" [style.width.%]="100"  (click)="login()" >
+      <ion-ripple-effect></ion-ripple-effect>
+      <ion-label   class="lbl">Sign In with Your Microsoft Account</ion-label>
+    
+      <div class="btn">
+        
+        <ion-icon name="arrow-forward-outline" color="primary"></ion-icon>
+      </div>
+    </div>
+  </div>
+  <div class="logout-btn ion-activatable ripple-parent" [style.width.%]="100" (click)="logout()">
+    <ion-ripple-effect></ion-ripple-effect>
+    <ion-label class="lbl">Logout Test</ion-label>
+  </div>
+</ion-content>

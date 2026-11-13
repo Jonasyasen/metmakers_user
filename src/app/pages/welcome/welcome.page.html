@@ -1,0 +1,47 @@
+
+
+<ion-content >
+  <div class="welcome-screen">
+    <swiper-container #swiper (slidechange)="slideChanged($event)">
+      <swiper-slide>
+        <div class="slide-content">
+          <img src="assets/images/slider/mm2.png" alt="" class="img">
+          <ion-label class="title">Online Learning</ion-label>
+          <ion-label class="sub-title">We Provide Classes Online Classes and Pre Recorded Leactures.!</ion-label>
+        </div>
+      </swiper-slide>
+
+      <swiper-slide>
+        <div class="slide-content">
+          <img src="assets/images/slider/2.png" alt="" class="img">
+          <ion-label class="title">Learn from Anytime</ion-label>
+          <ion-label class="sub-title">Booked or Same the Lectures for Future</ion-label>
+        </div>
+      </swiper-slide>
+
+      <swiper-slide>
+        <div class="slide-content">
+          <img src="assets/images/slider/3.png" alt="" class="img">
+          <ion-label class="title">Get Online Certificate</ion-label>
+          <ion-label class="sub-title">Analyse your scores and Track your results</ion-label>
+        </div>
+      </swiper-slide>
+    </swiper-container>
+
+    <div class="bottom-content">
+      <div class="progress">
+        <div *ngFor="let item of [0,1,2]" [class]="item == index ?'active':'deactive'"></div>
+      </div>
+      <div class="circle-btn ion-activatable ripple-parent" (click)="nextSlide()" *ngIf="isEnd == false">
+        <ion-icon name="arrow-forward-outline" color="light"></ion-icon>
+      </div>
+      <div class="next-btn ion-activatable ripple-parent" (click)="nextSlide()" *ngIf="isEnd == true"
+        [style.width.%]="50">
+        <ion-label class="lbl">Get Started</ion-label>
+        <div class="btn">
+          <ion-icon name="arrow-forward-outline" color="primary"></ion-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

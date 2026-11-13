@@ -1,0 +1,159 @@
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+}
+
+.time-column {
+  position: relative;
+}
+
+.time-slot-row {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 6px;
+}
+
+.time-label {
+  width: 60px;
+  font-size: 0.85rem;
+  color: #555;
+  padding-top: 8px;
+}
+
+.reservation-placeholder {
+  background-color: #bdbdbd;
+  border-radius: 8px;
+  flex: 1;
+  margin-left: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  min-height: 40px;
+  padding: 8px;
+  text-align: center;
+  font-size: 0.8rem;
+  line-height: 1.2;
+  word-break: break-word;
+  transition: background-color 0.3s ease;
+}
+
+.reservation-placeholder:hover {
+  background-color: #9e9e9e;
+}
+
+.add-icon {
+  color: white;
+  font-size: 24px;
+  margin-right: 6px;
+}
+
+.reservation-block {
+  background-color: #feda00;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  margin-left: 8px;
+  flex: 1;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.3;
+  word-break: break-word;
+}
+
+.reservation-block:hover {
+  background-color: #ffe600;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+}
+
+.current-time-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: red;
+  z-index: 10;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.reservation-placeholder.disabled {
+  background-color: #e0e0e0;
+  color: #999;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.reservation-placeholder.interactive:hover {
+  background-color: #9e9e9e;
+}
+
+.reservation-block.past-reservation {
+  background-color: #fff59d !important;
+  color: #444;
+  opacity: 0.8;
+}
+.date-title{
+  font-size: 14px;
+margin-left: 70px;
+}
+.week-selector {
+  display: flex;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background: #ffffff;
+  border-radius: 10px;
+  justify-content: center;
+}
+
+.day-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem 0.6rem;
+  margin: 0 4px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+  color: #333;
+}
+
+.day-tab span {
+  font-size: 0.65rem;
+  color: #999;
+  margin-top: 2px;
+}
+
+.day-tab.selected {
+  background-color: #feda00;
+  color: rgb(0, 0, 0);
+  border-color: #feda00;
+  font-weight: bold;
+}
+
+.day-tab.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+  background-color: #f9f9f9;
+  border-color: #eee;
+  color: #aaa;
+}
+
+.day-tab.disabled.weekend {
+  background-color: #ffe5e5 !important;
+  color: #bb4444 !important;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}

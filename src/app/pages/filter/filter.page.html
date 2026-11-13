@@ -1,0 +1,137 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : E-Learning-1 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="dark">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Filter</ion-title>
+    <ion-buttons slot="end">
+      <ion-button expand="block" fill="clear" color="dark">
+        Clear
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="filter-screen">
+    <ion-label class="title">Sub Categories:</ion-label>
+    <div class="checkbox-content">
+      <ion-item lines="none" class="item-content" *ngFor="let item of util.categories;">
+        <ion-label class="lbl">{{item}}</ion-label>
+        <ion-checkbox slot="start" mode="md" color="secondary"></ion-checkbox>
+      </ion-item>
+    </div>
+
+    <ion-label class="title">Levels:</ion-label>
+    <div class="checkbox-content">
+      <ion-item lines="none" class="item-content">
+        <ion-label class="lbl">All Levels</ion-label>
+        <ion-checkbox slot="start" mode="md" color="secondary"></ion-checkbox>
+      </ion-item>
+      <ion-item lines="none" class="item-content">
+        <ion-label class="lbl">Beginners</ion-label>
+        <ion-checkbox slot="start" mode="md" color="secondary"></ion-checkbox>
+      </ion-item>
+      <ion-item lines="none" class="item-content">
+        <ion-label class="lbl">Intermediate</ion-label>
+        <ion-checkbox slot="start" mode="md" color="secondary"></ion-checkbox>
+      </ion-item>
+      <ion-item lines="none" class="item-content">
+        <ion-label class="lbl">Expert</ion-label>
+        <ion-checkbox slot="start" mode="md" color="secondary"></ion-checkbox>
+      </ion-item>
+    </div>
+
+    <ion-label class="title">Price:</ion-label>
+    <div class="checkbox-content">
+      <ion-item lines="none" class="item-content">
+        <ion-label class="lbl">Paid</ion-label>
+        <ion-checkbox slot="start" mode="md" color="secondary"></ion-checkbox>
+      </ion-item>
+      <ion-item lines="none" class="item-content">
+        <ion-label class="lbl">Free</ion-label>
+        <ion-checkbox slot="start" mode="md" color="secondary"></ion-checkbox>
+      </ion-item>
+    </div>
+
+    <ion-label class="title">Features:</ion-label>
+    <div class="checkbox-content">
+      <ion-item lines="none" class="item-content">
+        <ion-label class="lbl">All Captian</ion-label>
+        <ion-checkbox slot="start" mode="md" color="secondary"></ion-checkbox>
+      </ion-item>
+      <ion-item lines="none" class="item-content">
+        <ion-label class="lbl">Quizzes</ion-label>
+        <ion-checkbox slot="start" mode="md" color="secondary"></ion-checkbox>
+      </ion-item>
+      <ion-item lines="none" class="item-content">
+        <ion-label class="lbl">Coding Exercise</ion-label>
+        <ion-checkbox slot="start" mode="md" color="secondary"></ion-checkbox>
+      </ion-item>
+      <ion-item lines="none" class="item-content">
+        <ion-label class="lbl">Practice Tests</ion-label>
+        <ion-checkbox slot="start" mode="md" color="secondary"></ion-checkbox>
+      </ion-item>
+    </div>
+
+    <ion-label class="title">Rating:</ion-label>
+    <div class="checkbox-content">
+      <ion-item lines="none" class="item-content">
+        <ion-label class="lbl">4.5 & Up Above</ion-label>
+        <ion-checkbox slot="start" mode="md" color="secondary"></ion-checkbox>
+      </ion-item>
+      <ion-item lines="none" class="item-content">
+        <ion-label class="lbl">4.0 & Up Above</ion-label>
+        <ion-checkbox slot="start" mode="md" color="secondary"></ion-checkbox>
+      </ion-item>
+      <ion-item lines="none" class="item-content">
+        <ion-label class="lbl">3.5 & Up Above</ion-label>
+        <ion-checkbox slot="start" mode="md" color="secondary"></ion-checkbox>
+      </ion-item>
+      <ion-item lines="none" class="item-content">
+        <ion-label class="lbl">3.0 & Up Above</ion-label>
+        <ion-checkbox slot="start" mode="md" color="secondary"></ion-checkbox>
+      </ion-item>
+    </div>
+
+    <ion-label class="title">Video Durations:</ion-label>
+    <div class="checkbox-content">
+      <ion-item lines="none" class="item-content">
+        <ion-label class="lbl">0-2 Hours</ion-label>
+        <ion-checkbox slot="start" mode="md" color="secondary"></ion-checkbox>
+      </ion-item>
+      <ion-item lines="none" class="item-content">
+        <ion-label class="lbl">3-6 Hours</ion-label>
+        <ion-checkbox slot="start" mode="md" color="secondary"></ion-checkbox>
+      </ion-item>
+      <ion-item lines="none" class="item-content">
+        <ion-label class="lbl">7-16 Hours</ion-label>
+        <ion-checkbox slot="start" mode="md" color="secondary"></ion-checkbox>
+      </ion-item>
+      <ion-item lines="none" class="item-content">
+        <ion-label class="lbl">17+ Hours</ion-label>
+        <ion-checkbox slot="start" mode="md" color="secondary"></ion-checkbox>
+      </ion-item>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <div class="next-btn-login ion-activatable ripple-parent" [style.width.%]="100" (click)="onBack()">
+      <ion-ripple-effect></ion-ripple-effect>
+      <ion-label class="lbl">Apply</ion-label>
+      <div class="btn">
+        <ion-icon name="arrow-forward-outline" color="primary"></ion-icon>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-footer>

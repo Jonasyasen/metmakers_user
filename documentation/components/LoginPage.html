@@ -1,0 +1,953 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>elearn-1 documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">elearn-1 documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  LoginPage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/login/login.page.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+                <code>AfterViewInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-login</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./login.page.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./login.page.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#passwordView" >passwordView</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#util" >util</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#login" >login</a>
+                            </li>
+                            <li>
+                                <a href="#logout" >logout</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit" >ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onLogin" >onLogin</a>
+                            </li>
+                            <li>
+                                <a href="#onRegister" >onRegister</a>
+                            </li>
+                            <li>
+                                <a href="#onReset" >onReset</a>
+                            </li>
+                            <li>
+                                <a href="#toggePassword" >toggePassword</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(util: <a href="../injectables/UtilService.html" target="_self">UtilService</a>, msalService: MsalService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/login/login.page.ts:19</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>util</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UtilService.html" target="_self" >UtilService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>msalService</td>
+                                                  
+                                                        <td>
+                                                                    <code>MsalService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="login"></a>
+                    <span class="name">
+                        <span ><b>login</b></span>
+                        <a href="#login"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>login()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="45"
+                                    class="link-to-prism">src/app/pages/login/login.page.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logout"></a>
+                    <span class="name">
+                        <span ><b>logout</b></span>
+                        <a href="#logout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>logout()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="49"
+                                    class="link-to-prism">src/app/pages/login/login.page.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <span ><b>ngAfterViewInit</b></span>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="31"
+                                    class="link-to-prism">src/app/pages/login/login.page.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="26"
+                                    class="link-to-prism">src/app/pages/login/login.page.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onLogin"></a>
+                    <span class="name">
+                        <span ><b>onLogin</b></span>
+                        <a href="#onLogin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onLogin()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="57"
+                                    class="link-to-prism">src/app/pages/login/login.page.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onRegister"></a>
+                    <span class="name">
+                        <span ><b>onRegister</b></span>
+                        <a href="#onRegister"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onRegister()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="61"
+                                    class="link-to-prism">src/app/pages/login/login.page.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onReset"></a>
+                    <span class="name">
+                        <span ><b>onReset</b></span>
+                        <a href="#onReset"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onReset()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="65"
+                                    class="link-to-prism">src/app/pages/login/login.page.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggePassword"></a>
+                    <span class="name">
+                        <span ><b>toggePassword</b></span>
+                        <a href="#toggePassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggePassword()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="53"
+                                    class="link-to-prism">src/app/pages/login/login.page.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="passwordView"></a>
+                    <span class="name">
+                        <span ><b>passwordView</b></span>
+                        <a href="#passwordView"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/login/login.page.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="util"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>util</b></span>
+                        <a href="#util"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/UtilService.html" target="_self" >UtilService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/pages/login/login.page.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, AfterViewInit } from &#x27;@angular/core&#x27;;
+import { UtilService } from &#x27;src/app/services/util.service&#x27;;
+import { MsalService } from &#x27;@azure/msal-angular&#x27;;
+
+@Component({
+  selector: &#x27;app-login&#x27;,
+  templateUrl: &#x27;./login.page.html&#x27;,
+  styleUrls: [&#x27;./login.page.scss&#x27;],
+})
+export class LoginPage implements OnInit, AfterViewInit {
+  passwordView: boolean &#x3D; false;
+
+  constructor(
+    public util: UtilService,
+    private msalService: MsalService
+  ) { }
+
+  ngOnInit() {
+    // Remove automatic login here to allow MSAL to initialize properly.
+    // This avoids calling loginRedirect() before MSAL is ready.
+  }
+
+  ngAfterViewInit() {
+    // Optional: Auto-login after view initialization if desired.
+    // Use a delay to ensure MSAL is fully initialized.
+    // Uncomment the following block if you want to enable auto-login.
+    /*
+    setTimeout(() &#x3D;&gt; {
+      if (!this.msalService.instance.getAllAccounts().length) {
+        this.msalService.loginRedirect();
+      }
+    }, 1000);
+    */
+  }
+
+  // Trigger login via user action (e.g., button click)
+  login() {
+    this.msalService.loginRedirect();
+  }
+
+  logout() {
+    this.msalService.logoutRedirect();
+  }
+
+  toggePassword() {
+    this.passwordView &#x3D; !this.passwordView;
+  }
+
+  onLogin() {
+    this.util.navigateRoot(&#x27;/tabs/&#x27;);
+  }
+
+  onRegister() {
+    this.util.navigateToPage(&#x27;/register&#x27;);
+  }
+
+  onReset() {
+    this.util.navigateToPage(&#x27;forgot-password&#x27;);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : E-Learning-1 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+--&gt;
+&lt;ion-header class&#x3D;&quot;ion-no-border&quot;&gt;
+  &lt;ion-toolbar mode&#x3D;&quot;ios&quot;&gt;
+  &lt;/ion-toolbar&gt;
+&lt;/ion-header&gt;
+
+&lt;ion-content class&#x3D;&quot;ion-padding&quot;&gt;
+  &lt;div class&#x3D;&quot;login-register-screen&quot;&gt;
+    &lt;div class&#x3D;&quot;logo-content&quot;&gt;
+      &lt;img src&#x3D;&quot;assets/images/images/logo.png&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;img&quot;&gt;
+    &lt;/div&gt;
+    &lt;ion-label class&#x3D;&quot;title&quot;&gt;Let&#x27;s Sign In.!&lt;/ion-label&gt;
+    &lt;ion-label class&#x3D;&quot;sub-title&quot;&gt;Login to Your account to continue your courses&lt;/ion-label&gt;
+
+    &lt;div class&#x3D;&quot;form-content&quot;&gt;
+      &lt;ion-item lines&#x3D;&quot;none&quot; class&#x3D;&quot;item-content&quot;&gt;
+        &lt;ion-icon slot&#x3D;&quot;start&quot; name&#x3D;&quot;mail-outline&quot;&gt;&lt;/ion-icon&gt;
+        &lt;ion-input type&#x3D;&quot;email&quot; placeholder&#x3D;&quot;Email&quot;&gt;&lt;/ion-input&gt;
+      &lt;/ion-item&gt;
+      &lt;ion-item lines&#x3D;&quot;none&quot; class&#x3D;&quot;item-content&quot;&gt;
+        &lt;ion-icon slot&#x3D;&quot;start&quot; name&#x3D;&quot;lock-closed-outline&quot;&gt;&lt;/ion-icon&gt;
+        &lt;ion-input [type]&#x3D;&quot;passwordView &#x3D;&#x3D; false ? &#x27;password&#x27; :&#x27;text&#x27; &quot; placeholder&#x3D;&quot;Password&quot;&gt;&lt;/ion-input&gt;
+        &lt;ion-icon slot&#x3D;&quot;end&quot; [name]&#x3D;&quot;passwordView &#x3D;&#x3D; false ?&#x27;eye-outline&#x27; :&#x27;eye-off-outline&#x27;&quot;
+          (click)&#x3D;&quot;toggePassword()&quot;&gt;&lt;/ion-icon&gt;
+      &lt;/ion-item&gt;
+
+      &lt;div class&#x3D;&quot;extra-contnet&quot;&gt;
+        &lt;ion-item lines&#x3D;&quot;none&quot; class&#x3D;&quot;checkbox-content&quot;&gt;
+          &lt;ion-label class&#x3D;&quot;lbl&quot;&gt;Remember Me&lt;/ion-label&gt;
+          &lt;ion-checkbox slot&#x3D;&quot;start&quot; mode&#x3D;&quot;md&quot;&gt;&lt;/ion-checkbox&gt;
+        &lt;/ion-item&gt;
+        &lt;ion-label class&#x3D;&quot;reset&quot; (click)&#x3D;&quot;onReset()&quot;&gt;Forgot Password?&lt;/ion-label&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;next-btn-login ion-activatable ripple-parent&quot; [style.width.%]&#x3D;&quot;100&quot; (click)&#x3D;&quot;onLogin()&quot;&gt;
+        &lt;ion-ripple-effect&gt;&lt;/ion-ripple-effect&gt;
+        &lt;ion-label class&#x3D;&quot;lbl&quot;&gt;Sign In&lt;/ion-label&gt;
+        &lt;div class&#x3D;&quot;btn&quot;&gt;
+          &lt;ion-icon name&#x3D;&quot;arrow-forward-outline&quot; color&#x3D;&quot;primary&quot;&gt;&lt;/ion-icon&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;ion-label class&#x3D;&quot;or-lbl&quot;&gt;Or Continue With&lt;/ion-label&gt;
+    &lt;div class&#x3D;&quot;social-btn&quot;&gt;
+      &lt;div class&#x3D;&quot;logo-content ion-activatable ripple-parent&quot;&gt;
+        &lt;ion-ripple-effect&gt;&lt;/ion-ripple-effect&gt;
+        &lt;ion-icon name&#x3D;&quot;logo-google&quot; color&#x3D;&quot;danger&quot;&gt;&lt;/ion-icon&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;logo-content ion-activatable ripple-parent&quot;&gt;
+        &lt;ion-ripple-effect&gt;&lt;/ion-ripple-effect&gt;
+        &lt;ion-icon name&#x3D;&quot;logo-twitter&quot; color&#x3D;&quot;tertiary&quot;&gt;&lt;/ion-icon&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;logo-content ion-activatable ripple-parent&quot;&gt;
+        &lt;ion-ripple-effect&gt;&lt;/ion-ripple-effect&gt;
+        &lt;ion-icon name&#x3D;&quot;logo-apple&quot; color&#x3D;&quot;dark&quot;&gt;&lt;/ion-icon&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;ion-label class&#x3D;&quot;register-lbl&quot; (click)&#x3D;&quot;onRegister()&quot;&gt; Don&#x27;t have an Account? &lt;span class&#x3D;&quot;active&quot;&gt;Sign Up&lt;/span&gt;
+    &lt;/ion-label&gt;
+  &lt;/div&gt;
+&lt;/ion-content&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./login.page.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">/*
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : E-Learning-1 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+*/</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!--  Authors : initappz (Rahul Jograna)  Website : https://initappz.com/  App Name : E-Learning-1 This App Template Source code is licensed as per the  terms found in the Website https://initappz.com/license  Copyright and Good Faith Purchasers © 2023-present initappz.--><ion-header class="ion-no-border">  <ion-toolbar mode="ios">  </ion-toolbar></ion-header><ion-content class="ion-padding">  <div class="login-register-screen">    <div class="logo-content">      <img src="assets/images/images/logo.png" alt="" class="img">    </div>    <ion-label class="title">Let\'s Sign In.!</ion-label>    <ion-label class="sub-title">Login to Your account to continue your courses</ion-label>    <div class="form-content">      <ion-item lines="none" class="item-content">        <ion-icon slot="start" name="mail-outline"></ion-icon>        <ion-input type="email" placeholder="Email"></ion-input>      </ion-item>      <ion-item lines="none" class="item-content">        <ion-icon slot="start" name="lock-closed-outline"></ion-icon>        <ion-input [type]="passwordView == false ? \'password\' :\'text\' " placeholder="Password"></ion-input>        <ion-icon slot="end" [name]="passwordView == false ?\'eye-outline\' :\'eye-off-outline\'"          (click)="toggePassword()"></ion-icon>      </ion-item>      <div class="extra-contnet">        <ion-item lines="none" class="checkbox-content">          <ion-label class="lbl">Remember Me</ion-label>          <ion-checkbox slot="start" mode="md"></ion-checkbox>        </ion-item>        <ion-label class="reset" (click)="onReset()">Forgot Password?</ion-label>      </div>      <div class="next-btn-login ion-activatable ripple-parent" [style.width.%]="100" (click)="onLogin()">        <ion-ripple-effect></ion-ripple-effect>        <ion-label class="lbl">Sign In</ion-label>        <div class="btn">          <ion-icon name="arrow-forward-outline" color="primary"></ion-icon>        </div>      </div>    </div>    <ion-label class="or-lbl">Or Continue With</ion-label>    <div class="social-btn">      <div class="logo-content ion-activatable ripple-parent">        <ion-ripple-effect></ion-ripple-effect>        <ion-icon name="logo-google" color="danger"></ion-icon>      </div>      <div class="logo-content ion-activatable ripple-parent">        <ion-ripple-effect></ion-ripple-effect>        <ion-icon name="logo-twitter" color="tertiary"></ion-icon>      </div>      <div class="logo-content ion-activatable ripple-parent">        <ion-ripple-effect></ion-ripple-effect>        <ion-icon name="logo-apple" color="dark"></ion-icon>      </div>    </div>    <ion-label class="register-lbl" (click)="onRegister()"> Don\'t have an Account? <span class="active">Sign Up</span>    </ion-label>  </div></ion-content></div>'
+    var COMPONENTS = [{'name': 'AddNewCardPage', 'selector': 'app-add-new-card'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPage', 'selector': 'app-auth'},{'name': 'BookmarkPage', 'selector': 'app-bookmark'},{'name': 'CategoriesPage', 'selector': 'app-categories'},{'name': 'ChatsPage', 'selector': 'app-chats'},{'name': 'CountryCodePickerPage', 'selector': 'app-country-code-picker'},{'name': 'CourseDetailsPage', 'selector': 'app-course-details'},{'name': 'CreatePinPage', 'selector': 'app-create-pin'},{'name': 'CurriculcumPage', 'selector': 'app-curriculcum'},{'name': 'EditProfilePage', 'selector': 'app-edit-profile'},{'name': 'EReceiptPage', 'selector': 'app-e-receipt'},{'name': 'FillProfilePage', 'selector': 'app-fill-profile'},{'name': 'FilterPage', 'selector': 'app-filter'},{'name': 'FingerPrintPage', 'selector': 'app-finger-print'},{'name': 'ForgotPasswordPage', 'selector': 'app-forgot-password'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InboxPage', 'selector': 'app-inbox'},{'name': 'InviteFriendsPage', 'selector': 'app-invite-friends'},{'name': 'LanguagesPage', 'selector': 'app-languages'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'MentorDetailsPage', 'selector': 'app-mentor-details'},{'name': 'MyCoursesDetailsPage', 'selector': 'app-my-courses-details'},{'name': 'MyCoursesDetailsPage', 'selector': 'app-my-courses-details'},{'name': 'MyCoursesPage', 'selector': 'app-my-courses'},{'name': 'NotificationSettingsPage', 'selector': 'app-notification-settings'},{'name': 'NotificationsPage', 'selector': 'app-notifications'},{'name': 'OnlineCoursesPage', 'selector': 'app-online-courses'},{'name': 'PaymentMethodsPage', 'selector': 'app-payment-methods'},{'name': 'PaymentOptionsPage', 'selector': 'app-payment-options'},{'name': 'PaymentSuccessModalPage', 'selector': 'app-payment-success-modal'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterPage', 'selector': 'app-register'},{'name': 'RemoveBookmarkModalPage', 'selector': 'app-remove-bookmark-modal'},{'name': 'ReviewsPage', 'selector': 'app-reviews'},{'name': 'SearchPage', 'selector': 'app-search'},{'name': 'SecurityPage', 'selector': 'app-security'},{'name': 'SuccessPage', 'selector': 'app-success'},{'name': 'TabsPage', 'selector': 'app-tabs'},{'name': 'TermsPage', 'selector': 'app-terms'},{'name': 'TopCoursesPage', 'selector': 'app-top-courses'},{'name': 'TopMentorsPage', 'selector': 'app-top-mentors'},{'name': 'TransactionPage', 'selector': 'app-transaction'},{'name': 'VideoCallPage', 'selector': 'app-video-call'},{'name': 'VideoPlayerPage', 'selector': 'app-video-player'},{'name': 'ViewCertificatePage', 'selector': 'app-view-certificate'},{'name': 'WelcomePage', 'selector': 'app-welcome'},{'name': 'WriteReviewsPage', 'selector': 'app-write-reviews'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'LoginPage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'LoginPage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

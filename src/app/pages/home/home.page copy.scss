@@ -1,0 +1,186 @@
+/* Electronic Student ID Card styling */
+
+
+ion-content {
+  --background: #ffffff; /* تغيير لون الخلفية */
+  
+
+}
+.student-id-card {
+  position: relative;
+  /* حجم ولون الخلفية الأساسي */
+  background: linear-gradient(270deg, #ffffff, #ffffff);
+  background-size: 200% 200%;
+  animation: movingGradient 5s ease infinite;  /* ربط الخلفية بالحركة */
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  margin: 20px;
+  padding: 20px;
+}
+.bgyellow {
+  margin: 20px;
+  background-color: #ffd24d;
+  border-radius: 10px;
+  overflow: hidden;
+  animation: shadowChange 5s infinite alternate;
+}
+
+
+
+
+.competency-item {
+  text-align: center;
+  margin: 10px;
+}
+
+.competency-icon {
+  width: 50px;
+  height: 50px;
+  background-color: yellow;
+  border-radius: 50%;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.competency-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.competency-description {
+  font-size: 12px;
+  color: #666;
+  border-top: 1px solid #ccc;
+  padding-top: 5px;
+  margin-top: 5px;
+}
+
+@keyframes shadowChange {
+  0% {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  }
+  50% {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* تعريف الحركة */
+@keyframes movingGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.student-id-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.student-photo {
+  height: 24vh;  /* الارتفاع لتكون الصورة مستطيلة */
+  border-radius: 0;  /* إزالة التقوّس لجعل الصورة بزوايا حادة */
+  margin: 0 auto; /* محاذاة وسط العنصر */
+}
+
+
+.student-info {
+  text-align: left;
+}
+
+.student-fullname {
+  margin: 0;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.student-id-number {
+  margin: 0;
+  font-size: 14px;
+  color: gray;
+}
+
+.student-id-details {
+  margin-bottom: 20px;
+}
+
+.student-department,
+.student-status {
+  margin: 2px 0;
+  font-size: 14px;
+}
+
+/* Four Colored Circles */
+.color-circles {
+  display: flex;
+  justify-content: space-around;
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.circle-red {
+  background-color: #ff4d4d;
+}
+
+.circle-blue {
+  background-color: #4d79ff;
+}
+
+.circle-green {
+  background-color: #4dff88;
+}
+
+.circle-yellow {
+  background-color: #ffd24d;
+}
+.doc-watermark {
+  position: relative; /* مهم لإتاحة الطبقة العليا (overlay) داخل العنصر */
+}
+
+/* نستخدم ::before لإنشاء طبقة علوية (overlay) */
+.doc-watermark::before {
+  content: "";
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0;
+  pointer-events: none; /* حتى لا يتأثر تفاعل المستخدم بالعلامة المائية */
+  opacity: 0.05;       /* شفافية منخفضة لخلق تأثير وثيقة */
+  
+  /* هنا نستخدم تدرجًا أو صورة متكررة كعلامة مائية */
+  /* مثال 1: تدرج خطي متكرر (repeating-linear-gradient) */
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.1) 50px,
+    transparent 50px,
+    transparent 100px
+  );
+
+  /* ربط الخلفية بحركة أو تحريك موضعها لخلق انطباع بأنها حية */
+  animation: watermarkShift 15s linear infinite;
+  /* يمكن ضبط المدة والتسارع (ease, linear) حسب الذوق */
+}
+
+/* الحركة */
+@keyframes watermarkShift {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 200px 200px;
+  }
+}

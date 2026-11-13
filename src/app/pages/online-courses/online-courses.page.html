@@ -1,0 +1,105 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : E-Learning-1 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="dark">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{name}}</ion-title>
+  </ion-toolbar>
+  <ion-toolbar mode="ios">
+    <div class="home-screen-toolbar-search">
+      <div class="prefix">
+        <ion-icon name="search-outline" color="medium"></ion-icon>
+        <ion-input type="text" [placeholder]="name"></ion-input>
+      </div>
+      <div class="end-btn ion-activatable ripple-parent" (click)="onFilter()">
+        <ion-ripple-effect></ion-ripple-effect>
+        <ion-icon name="options-outline" color="light"></ion-icon>
+      </div>
+    </div>
+  </ion-toolbar>
+  <ion-toolbar mode="ios">
+    <ion-row class="online-course-segments">
+      <ion-col size="6">
+        <div
+          [class]="selected == 'courses' ? 'active-btn ion-activatable ripple-parent':'deactive-btn ion-activatable ripple-parent'"
+          (click)="changeSelected('courses')">
+          <ion-ripple-effect></ion-ripple-effect>
+          <ion-label class="lbl">Courses</ion-label>
+        </div>
+      </ion-col>
+      <ion-col size="6">
+        <div
+          [class]="selected == 'mentors' ? 'active-btn ion-activatable ripple-parent':'deactive-btn ion-activatable ripple-parent'"
+          (click)="changeSelected('mentors')">
+          <ion-ripple-effect></ion-ripple-effect>
+          <ion-label class="lbl">Mentors</ion-label>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="online-course-screen">
+    <div class="main-title">
+      <ion-label class="title">Result for <span class="active">" {{name}} "</span> </ion-label>
+      <ion-label class="btn"> <span *ngIf="selected =='courses'" class="active">2030</span> <span
+          *ngIf="selected == 'mentors'" class="active">15</span> FOUNDS <ion-icon name="chevron-forward-outline"
+          color="primary"></ion-icon>
+      </ion-label>
+    </div>
+    <div *ngIf="selected == 'courses'">
+      <ion-card *ngFor="let item of coursesList;let i = index;" class="course-content-list" mode="ios"
+        (click)="onCourseDetails(item.link_name,item.image_url,name)">
+        <ion-row>
+          <ion-col size="4" class="removed-space">
+            <div class="course-list-cover" [ngStyle]="{'background-image': 'url('+item.image_url+')'}"></div>
+          </ion-col>
+          <ion-col size="8">
+            <div class="name-content">
+              <div class="top-content">
+                <ion-label class="course-type"> {{name}} </ion-label>
+                <ion-icon name="bookmark-outline" color="secondary"></ion-icon>
+              </div>
+              <ion-label class="name">
+                {{ (item.link_name.length>25)? (item.link_name | slice:0:25)+'..':(item.link_name) }}
+              </ion-label>
+              <div class="price-content">
+                <ion-label class="price">₹{{getDiscountedPrice(item.retail_price,10)}}</ion-label>
+                <ion-label class="discount">₹{{item.retail_price}}</ion-label>
+              </div>
+              <div class="extra-content">
+                <ion-label class="rate"><ion-icon name="star" color="warning"></ion-icon> 4.2 </ion-label>
+                <div class="line"></div>
+                <ion-label class="total">{{i+1}},85,22 Students</ion-label>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </div>
+    <div *ngIf="selected == 'mentors'">
+      <ion-row class="top-mentors-list" *ngFor="let item of util.userList;"
+        (click)="onMentorDetails(item.name,item.image)">
+        <ion-col size="3">
+          <div class="mentor-cover-image" [ngStyle]="{'background-image': 'url('+item.image+')'}"></div>
+        </ion-col>
+        <ion-col size="9">
+          <div class="name-content">
+            <ion-label class="name"> {{item.name}} </ion-label>
+            <ion-label class="subject"> {{item.subject}} </ion-label>
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,118 @@
+<ion-toolbar
+  style="
+    --background: #feda00;
+    --color: black;
+    --box-shadow: none;
+    min-height: 44px;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  "
+>
+
+  <ion-select
+    interface="popover"
+    value="laser"
+    style="color: black; font-weight: 500; min-width: 160px;"
+  >
+    <ion-select-option value="laser">Laser Cutter (only available)</ion-select-option>
+    <ion-select-option disabled value="note">More machines coming soon</ion-select-option>
+  </ion-select>
+</ion-toolbar>
+
+
+
+<ion-content class="ion-padding">
+
+  <!-- ✅ شريط اختيار الأيام -->
+  <div class="week-selector">
+    <div class="day-tab" *ngFor="let day of weekDays"
+         [class.selected]="day.selected"
+         [class.disabled]="day.disabled"
+         [class.weekend]="day.weekend"
+         (click)="selectDay(day)">
+      {{ day.label }}
+    </div>
+  </div>
+
+  <h2 class="date-title">Date: {{ formatDate(currentDate) }}</h2>
+
+  <div class="calendar-container">
+    <div class="time-column">
+      <div *ngFor="let block of displayBlocks" class="time-slot-row">
+        <div class="time-label">{{ block.start }}</div>
+
+        <!-- بلوك محجوز -->
+        <div *ngIf="block.type === 'reserved'"
+             class="reservation-block"
+             [class.past-reservation]="isPastReservation(block)"
+             [style.height.px]="getMinutes(block.start, block.end)">
+          {{ block.title }}<br />
+          {{ block.start }} - {{ block.end }}
+        </div>
+
+        <!-- بلوك شاغر -->
+        <div *ngIf="block.type === 'free'"
+             class="reservation-placeholder"
+             [style.height.px]="getMinutes(block.start, block.end)"
+             [class.disabled]="isPastBlock(block)"
+             [class.interactive]="!isPastBlock(block)"
+             (click)="!isPastBlock(block) && openReservationForm(block.start, block.end)">
+          <ion-icon name="add" class="add-icon"></ion-icon>
+          {{ block.start }} - {{ block.end }}
+        </div>
+      </div>
+
+      <!--       <div class="current-time-line" [style.top.px]="getOffsetMinutes(currentTime)"></div>
+خط الوقت الحالي -->
+    </div>
+  </div>
+
+  <!-- نموذج الحجز -->
+  <ion-modal 
+  [isOpen]="isFormOpen"
+  (didDismiss)="closeReservationForm()"
+  [breakpoints]="[0, 0.5, 1]"
+  [initialBreakpoint]="0.5"
+>
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>New Reservation</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="closeReservationForm()">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-item>
+        <ion-label position="stacked">Note</ion-label>
+        <ion-input [(ngModel)]="reservationDetails.title" placeholder="add your note"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Start Time</ion-label>
+        <ion-select [(ngModel)]="reservationDetails.start" placeholder="Select start time">
+          <ion-select-option *ngFor="let time of getTimeOptionsInFreeRange()" [value]="time">
+            {{ time }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">End Time</ion-label>
+        <ion-select [(ngModel)]="reservationDetails.end" placeholder="Select end time">
+          <ion-select-option *ngFor="let time of getAvailableEndTimes()" [value]="time">
+            {{ time }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-button expand="full" (click)="confirmReservation()">Confirm Reservation</ion-button>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+</ion-content>

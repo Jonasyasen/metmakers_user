@@ -1,0 +1,59 @@
+<ion-header translucent>
+  <ion-toolbar color="warning">
+    <ion-title color="dark">Course Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="timeline-content">
+  <!-- Header with background image and overlay text -->
+  <div class="course-header-container">
+    <img
+      src="https://images.unsplash.com/photo-1534126511673-b6899657816a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+      alt="Course Image"
+      class="course-header-img"
+    />
+    <div class="course-header-overlay">
+      <h2>Course Name</h2>
+      <p>This is a short description highlighting the course features and objectives.</p>
+    </div>
+  </div>
+
+  <ion-list>
+    <ion-item *ngFor="let course of upcomingCourses">
+      <div class="timeline-item">
+        <ion-item lines="none" [disabled]="!course.is_registered && hasAnyActiveEnrollment()">
+          <div slot="start" class="timeline-date">
+            24/FEB 14:00 -15:00
+          </div>
+
+          <ion-avatar slot="start" class="timeline-avatar">
+            <img
+              src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
+              alt="Instructor Image"
+            />
+          </ion-avatar>
+
+          <ion-label class="timeline-text">
+            <h2>{{ course.instructor }}</h2>
+            <div class="course-details-horizontal">
+              <p><b>Location:</b> {{ course.location }}</p>
+              <ion-button *ngIf="!course.is_registered" fill="solid" color="success" slot="end" [disabled]="hasAnyActiveEnrollment()" (click)="enrollCourse(course.id, 1)">Enroll</ion-button>
+              <ion-button *ngIf="course.is_registered" fill="solid" color="danger" slot="end" (click)="cancelCourse(course.registration_id)">Cancel</ion-button>
+            </div>
+
+            <div class="capacity-indicator">
+              <div
+                *ngFor="let i of [0,1,2,3,4,5,6,7,8,9]"
+                class="capacity-segment"
+                [class.filled]="i < getUsedSegments(10, course.capacity)"
+              ></div>
+              <span class="capacity-text">
+                {{ getUsedSegments(5, course.capacity) }}/10
+              </span>
+            </div>
+          </ion-label>
+        </ion-item>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

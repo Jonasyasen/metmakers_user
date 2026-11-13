@@ -1,0 +1,112 @@
+.course-header-container {
+  position: relative;
+  width: 100%;
+  height: 250px; /* يمكنك تغيير الارتفاع حسب الحاجة */
+  overflow: hidden; /* لإخفاء أي جزء خارج الإطار */
+  margin-bottom: 1rem;
+}
+
+/* صورة الهيدر */
+.course-header-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* لضبط الصورة مع الحفاظ على تناسبها */
+  display: block;
+}
+
+/* طبقة شفافة فوق الصورة لإظهار النص */
+.course-header-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5); /* خلفية شبه شفافة */
+  color: #fff;
+  padding: 1rem;
+}
+
+.course-header-overlay h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.course-header-overlay p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.instructor-card {
+  margin: 8px;
+  border-radius: 8px;
+
+  ion-item {
+    --padding-start: 12px;
+    --padding-end: 12px;
+    --inner-padding-end: 0;
+  }
+
+  .instructor-info {
+    h2 {
+      font-size: 16px;
+      margin: 0;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+
+      ion-icon {
+        margin-right: 4px;
+        font-size: 16px;
+      }
+    }
+
+    p {
+      font-size: 14px;
+      color: #777;
+      margin-top: 4px;
+
+      ion-icon {
+        margin-right: 4px;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .date-time {
+    text-align: right;
+    .date {
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .time {
+      font-size: 12px;
+      color: #888;
+    }
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0;
+    margin-top: -10px; // لضبط المسافات مع ion-item
+  }
+
+  .capacity {
+    font-size: 14px;
+    color: #555;
+    display: flex;
+    align-items: center;
+
+    ion-progress-bar {
+      width: 80px;
+      margin-left: 8px;
+    }
+  }
+
+  .enrol-button {
+    --padding-start: 16px;
+    --padding-end: 16px;
+    border-radius: 4px;
+  }
+}

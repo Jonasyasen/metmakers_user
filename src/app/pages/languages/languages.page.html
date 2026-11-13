@@ -1,0 +1,30 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : E-Learning-1 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="md">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="dark">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Languages</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="languages-screen">
+    <ion-radio-group name="auto" value="tesla">
+      <ion-card *ngFor="let item of util.languagesList" class="card-content" mode="ios">
+        <ion-item lines="none" class="item-content">
+          <ion-label class="lbl">{{item}}</ion-label>
+          <ion-radio [value]="item" mode="md" slot="end" color="secondary"></ion-radio>
+        </ion-item>
+      </ion-card>
+    </ion-radio-group>
+  </div>
+</ion-content>

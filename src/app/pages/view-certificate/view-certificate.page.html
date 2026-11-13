@@ -1,0 +1,47 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : E-Learning-1 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="dark">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Download Certificate</ion-title>
+  </ion-toolbar>
+  <ion-toolbar mode="ios">
+    <div class="home-screen-toolbar-search">
+      <div class="prefix">
+        <ion-icon name="search-outline" color="medium"></ion-icon>
+        <ion-input type="text" placeholder="Graphics Design"></ion-input>
+      </div>
+      <div class="end-btn ion-activatable ripple-parent">
+        <ion-ripple-effect></ion-ripple-effect>
+        <ion-icon name="search-outline" color="light"></ion-icon>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card mode="ios" class="cerificate-screen">
+    <img src="assets/images/images/certificate.jpg" alt="" class="img">
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div class="next-btn-login ion-activatable ripple-parent" [style.width.%]="100">
+      <ion-ripple-effect></ion-ripple-effect>
+      <ion-label class="lbl">Download Certificate</ion-label>
+      <div class="btn">
+        <ion-icon name="arrow-forward-outline" color="primary"></ion-icon>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-footer>

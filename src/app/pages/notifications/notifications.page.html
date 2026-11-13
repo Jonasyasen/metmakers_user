@@ -1,0 +1,52 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : E-Learning-1 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="dark">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Notifications</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="notification-screen">
+    <ion-label class="main-title">Today</ion-label>
+    <ion-card mode="ios" class="card-content" *ngFor="let item of [1,2]">
+      <div class="prefix">
+        <ion-icon name="grid-outline" color="dark"></ion-icon>
+      </div>
+      <div class="name-content">
+        <ion-label class="title">New Category Course.!</ion-label>
+        <ion-label class="sub-title">New the 3D Design Course is Available</ion-label>
+      </div>
+    </ion-card>
+    <ion-label class="main-title">Yesterday</ion-label>
+    <ion-card mode="ios" class="card-content" *ngFor="let item of [1,2]">
+      <div class="prefix">
+        <ion-icon name="grid-outline" color="dark"></ion-icon>
+      </div>
+      <div class="name-content">
+        <ion-label class="title">New Category Course.!</ion-label>
+        <ion-label class="sub-title">New the 3D Design Course is Available</ion-label>
+      </div>
+    </ion-card>
+    <ion-label class="main-title">Monday 22, 2023</ion-label>
+    <ion-card mode="ios" class="card-content" *ngFor="let item of [1,2]">
+      <div class="prefix">
+        <ion-icon name="grid-outline" color="dark"></ion-icon>
+      </div>
+      <div class="name-content">
+        <ion-label class="title">New Category Course.!</ion-label>
+        <ion-label class="sub-title">New the 3D Design Course is Available</ion-label>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>

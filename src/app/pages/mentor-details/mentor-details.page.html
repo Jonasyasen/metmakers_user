@@ -1,0 +1,133 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : E-Learning-1 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios" color="light">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="dark">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="mentors-details-screen">
+    <div class="top-content-data">
+      <div class="mentor-cover-image" [ngStyle]="{'background-image': 'url('+image+')'}"></div>
+      <ion-label class="name"> {{name}} </ion-label>
+      <ion-label class="type"> Fullstack Developer at Initappz </ion-label>
+      <div class="social-content">
+        <div class="content">
+          <ion-label class="title">21</ion-label>
+          <ion-label class="sub-title">Courses</ion-label>
+        </div>
+        <div class="content">
+          <ion-label class="title">52634</ion-label>
+          <ion-label class="sub-title">Students</ion-label>
+        </div>
+        <div class="content">
+          <ion-label class="title">12542</ion-label>
+          <ion-label class="sub-title">Ratings</ion-label>
+        </div>
+      </div>
+
+      <div class="social-btn">
+        <div class="follow ion-activatable ripple-parent">
+          <ion-ripple-effect></ion-ripple-effect>
+          <ion-label class="lbl">Follow</ion-label>
+        </div>
+        <div class="message ion-activatable ripple-parent">
+          <ion-ripple-effect></ion-ripple-effect>
+          <ion-label class="lbl">Message</ion-label>
+        </div>
+      </div>
+    </div>
+
+    <ion-card mode="ios" class="bottom-content">
+      <ion-label class="desc-top">Sed quanta s alias nunc tantum possitne tanta Nec vero sum nescius esse utilitatem in
+        historia non modo voluptatem.</ion-label>
+      <div class="segment-controls">
+        <div
+          [class]="selectedSegments == 'courses' ? 'active-btn ion-activatable ripple-parent':'deactive-btn ion-activatable ripple-parent'"
+          (click)="changeSegments('courses')">
+          <ion-ripple-effect></ion-ripple-effect>
+          <ion-label class="lbl">Courses</ion-label>
+        </div>
+        <div
+          [class]="selectedSegments == 'rating' ? 'active-btn ion-activatable ripple-parent':'deactive-btn ion-activatable ripple-parent'"
+          (click)="changeSegments('rating')">
+          <ion-ripple-effect></ion-ripple-effect>
+          <ion-label class="lbl">Ratings</ion-label>
+        </div>
+      </div>
+      <div class="courseList" *ngIf="selectedSegments =='courses'">
+        <ion-card *ngFor="let item of coursesList;let i = index;" class="course-content-list" mode="ios"
+          (click)="onCourseDetails(item.link_name,item.image_url,'Graphics Design')">
+          <ion-row>
+            <ion-col size="4" class="removed-space">
+              <div class="course-list-cover" [ngStyle]="{'background-image': 'url('+item.image_url+')'}"></div>
+            </ion-col>
+            <ion-col size="8">
+              <div class="name-content">
+                <div class="top-content">
+                  <ion-label class="course-type"> Graphics Design </ion-label>
+                  <ion-icon name="bookmark-outline" color="secondary"></ion-icon>
+                </div>
+                <ion-label class="name">
+                  {{ (item.link_name.length>25)? (item.link_name | slice:0:25)+'..':(item.link_name) }}
+                </ion-label>
+                <div class="price-content">
+                  <ion-label class="price">₹{{getDiscountedPrice(item.retail_price,10)}}</ion-label>
+                  <ion-label class="discount">₹{{item.retail_price}}</ion-label>
+                </div>
+                <div class="extra-content">
+                  <ion-label class="rate"><ion-icon name="star" color="warning"></ion-icon> 4.2 </ion-label>
+                  <div class="line"></div>
+                  <ion-label class="total">{{i+1}},85,22 Students</ion-label>
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </div>
+
+      <div class="ratingList" *ngIf="selectedSegments == 'rating'">
+        <div class="reviews-list">
+          <ion-row class="reviews-content" *ngFor="let item of util.userList.slice(0,5)">
+            <ion-col size="2">
+              <div class="user-cover-image" [ngStyle]="{'background-image': 'url('+item.image+')'}"></div>
+            </ion-col>
+            <ion-col size="10">
+              <div class="name-content">
+                <div class="header">
+                  <ion-label class="title"> {{item.name}} </ion-label>
+                  <ion-label class="rate"><ion-icon name="star" color="warning"></ion-icon> 4.5 </ion-label>
+                </div>
+                <ion-label class="desc">
+                  The Course is Very Good dolor sit amet, consect tur adipiscing elit. Naturales divitias dixit parab
+                  les esse, quod parvo
+                </ion-label>
+                <div class="bottom-rate">
+                  <div class="content">
+                    <ion-icon name="heart" color="danger"></ion-icon>
+                    <ion-label class="lbl">652</ion-label>
+                  </div>
+                  <div class="break"></div>
+                  <div class="content">
+                    <ion-icon name="time-outline" color="dark"></ion-icon>
+                    <ion-label class="lbl">1 Months Ago</ion-label>
+                  </div>
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </div>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>

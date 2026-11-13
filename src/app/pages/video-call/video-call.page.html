@@ -1,0 +1,38 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : E-Learning-1 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="dark">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="video-call-screen">
+    <div class="video-cover-image" [ngStyle]="{'background-image': 'url(assets/images/avatar/3.jpg)'}"></div>
+    <ion-label class="name">Richard G. Oneal</ion-label>
+    <ion-label class="time">04:40 Minutes</ion-label>
+    <div class="call-btns">
+      <div class="mute-btn ion-activatable ripple-parent">
+        <ion-ripple-effect></ion-ripple-effect>
+        <ion-icon name="mic-off" color="dark"></ion-icon>
+      </div>
+      <div class="disconnect-btn ion-activatable ripple-parent">
+        <ion-ripple-effect></ion-ripple-effect>
+        <ion-icon name="call" color="light"></ion-icon>
+      </div>
+      <div class="video-call-btn ion-activatable ripple-parent">
+        <ion-ripple-effect></ion-ripple-effect>
+        <ion-icon name="videocam-off-outline" color="light"></ion-icon>
+      </div>
+    </div>
+  </div>
+</ion-content>

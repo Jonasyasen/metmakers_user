@@ -1,0 +1,27 @@
+ion-tab-bar {
+ // --background: #feda00;
+  --background: #ecebeb;
+  --color: #666666;
+  --color-selected: black;
+
+  ion-tab-button.ion-selected {
+    ion-label {
+      font-weight: 700; /* ثخن الخط للتبويب النشط */
+    }
+    ion-icon {
+      font-weight: 700;
+    font-size: 0.9rem;
+
+    }
+  }
+
+  ion-label {
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    font-weight: 500; /* للتبويبات غير المفعّلة */
+  }
+
+  ion-icon {
+    font-size: 1.4rem;
+  }
+}

@@ -1,0 +1,1495 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>elearn-1 documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">elearn-1 documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  MyCoursesDetailsPage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/my-courses-details/my-courses-details.page.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-my-courses-details</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./my-courses-details.page.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./my-courses-details.page.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#selectedType" >selectedType</a>
+                            </li>
+                            <li>
+                                <a href="#upcomingCourses" >upcomingCourses</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#util" >util</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cancelCourse" >cancelCourse</a>
+                            </li>
+                            <li>
+                                <a href="#enrollCourse" >enrollCourse</a>
+                            </li>
+                            <li>
+                                <a href="#getUsedSegments" >getUsedSegments</a>
+                            </li>
+                            <li>
+                                <a href="#hasAnyActiveEnrollment" >hasAnyActiveEnrollment</a>
+                            </li>
+                            <li>
+                                <a href="#ionViewWillEnter" >ionViewWillEnter</a>
+                            </li>
+                            <li>
+                                <a href="#loadUpcomingCourses" >loadUpcomingCourses</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onBack" >onBack</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#openVideoPlayer" >openVideoPlayer</a>
+                            </li>
+                            <li>
+                                <a href="#viewCertificate" >viewCertificate</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(util: <a href="../injectables/UtilService.html" target="_self">UtilService</a>, modalController: ModalController, courseTypeService: <a href="../injectables/CourseTypeService.html" target="_self">CourseTypeService</a>, stateService: <a href="../injectables/StateService.html" target="_self">StateService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/pages/my-courses-details/my-courses-details.page.ts:15</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>util</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UtilService.html" target="_self" >UtilService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>modalController</td>
+                                                  
+                                                        <td>
+                                                                    <code>ModalController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>courseTypeService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CourseTypeService.html" target="_self" >CourseTypeService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>stateService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/StateService.html" target="_self" >StateService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cancelCourse"></a>
+                    <span class="name">
+                        <span ><b>cancelCourse</b></span>
+                        <a href="#cancelCourse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cancelCourse(courseId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="96"
+                                    class="link-to-prism">src/app/pages/my-courses-details/my-courses-details.page.ts:96</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>courseId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enrollCourse"></a>
+                    <span class="name">
+                        <span ><b>enrollCourse</b></span>
+                        <a href="#enrollCourse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>enrollCourse(courseId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, studentId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="80"
+                                    class="link-to-prism">src/app/pages/my-courses-details/my-courses-details.page.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>courseId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>studentId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUsedSegments"></a>
+                    <span class="name">
+                        <span ><b>getUsedSegments</b></span>
+                        <a href="#getUsedSegments"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getUsedSegments(registered: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, capacity: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="65"
+                                    class="link-to-prism">src/app/pages/my-courses-details/my-courses-details.page.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>registered</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>capacity</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hasAnyActiveEnrollment"></a>
+                    <span class="name">
+                        <span ><b>hasAnyActiveEnrollment</b></span>
+                        <a href="#hasAnyActiveEnrollment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>hasAnyActiveEnrollment()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="76"
+                                    class="link-to-prism">src/app/pages/my-courses-details/my-courses-details.page.ts:76</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p> Utility getter to check if the user is enrolled in ANY course
+ If yes, we disable the Enroll button for all other courses</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ionViewWillEnter"></a>
+                    <span class="name">
+                        <span ><b>ionViewWillEnter</b></span>
+                        <a href="#ionViewWillEnter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ionViewWillEnter()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="29"
+                                    class="link-to-prism">src/app/pages/my-courses-details/my-courses-details.page.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadUpcomingCourses"></a>
+                    <span class="name">
+                        <span ><b>loadUpcomingCourses</b></span>
+                        <a href="#loadUpcomingCourses"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadUpcomingCourses()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="50"
+                                    class="link-to-prism">src/app/pages/my-courses-details/my-courses-details.page.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="24"
+                                    class="link-to-prism">src/app/pages/my-courses-details/my-courses-details.page.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onBack"></a>
+                    <span class="name">
+                        <span ><b>onBack</b></span>
+                        <a href="#onBack"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onBack()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="34"
+                                    class="link-to-prism">src/app/pages/my-courses-details/my-courses-details.page.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openVideoPlayer"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>openVideoPlayer</b></span>
+                        <a href="#openVideoPlayer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>openVideoPlayer()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="42"
+                                    class="link-to-prism">src/app/pages/my-courses-details/my-courses-details.page.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="viewCertificate"></a>
+                    <span class="name">
+                        <span ><b>viewCertificate</b></span>
+                        <a href="#viewCertificate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>viewCertificate()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="38"
+                                    class="link-to-prism">src/app/pages/my-courses-details/my-courses-details.page.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedType"></a>
+                    <span class="name">
+                        <span ><b>selectedType</b></span>
+                        <a href="#selectedType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>number | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/pages/my-courses-details/my-courses-details.page.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="upcomingCourses"></a>
+                    <span class="name">
+                        <span ><b>upcomingCourses</b></span>
+                        <a href="#upcomingCourses"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/CourseByType.html" target="_self" >CourseByType[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/pages/my-courses-details/my-courses-details.page.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="util"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>util</b></span>
+                        <a href="#util"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/UtilService.html" target="_self" >UtilService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/my-courses-details/my-courses-details.page.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { ModalController } from &#x27;@ionic/angular&#x27;;
+import { UtilService } from &#x27;src/app/services/util.service&#x27;;
+import { VideoPlayerPage } from &#x27;../video-player/video-player.page&#x27;;
+import { CourseTypeService, CourseByType } from &#x27;src/app/services/courses.service&#x27;;
+import { StateService } from &#x27;src/app/services/state.service&#x27;;
+
+@Component({
+  selector: &#x27;app-my-courses-details&#x27;,
+  templateUrl: &#x27;./my-courses-details.page.html&#x27;,
+  styleUrls: [&#x27;./my-courses-details.page.scss&#x27;],
+})
+export class MyCoursesDetailsPage implements OnInit {
+  upcomingCourses: CourseByType[] &#x3D; [];
+  selectedType: number | null &#x3D; null;
+
+  constructor(
+    public util: UtilService,
+    private modalController: ModalController,
+    private courseTypeService: CourseTypeService,
+    private stateService: StateService
+  ) {}
+
+  ngOnInit() {
+    this.selectedType &#x3D; this.stateService.getSelectedCourseType();
+    this.loadUpcomingCourses();
+  }
+
+  ionViewWillEnter() {
+    // Re-check the selected type if needed
+    const selectedType &#x3D; this.stateService.getSelectedCourseType();
+  }
+
+  onBack() {
+    this.util.onBack();
+  }
+
+  viewCertificate() {
+    this.util.navigateToPage(&#x27;/view-certificate&#x27;);
+  }
+
+  async openVideoPlayer() {
+    const modal &#x3D; await this.modalController.create({
+      component: VideoPlayerPage,
+    });
+    await modal.present();
+  }
+
+  // Load courses from the backend
+  loadUpcomingCourses() {
+    if (this.selectedType !&#x3D;&#x3D; null) {
+      this.courseTypeService.getCoursesByType(this.selectedType).subscribe(
+        (data: CourseByType[]) &#x3D;&gt; {
+          // Suppose each course object has a &#x27;userEnrolled&#x27; boolean from the backend
+          this.upcomingCourses &#x3D; data;
+          console.log(&#x27;Upcoming courses&#x27;, this.upcomingCourses);
+        },
+        (error: any) &#x3D;&gt; {
+          console.error(&#x27;Error fetching upcoming courses&#x27;, error);
+        }
+      );
+    }
+  }
+
+  getUsedSegments(registered: number, capacity: number): number {
+    if (!capacity) {
+      return 0;
+    }
+    return Math.round((registered / capacity) * 10);
+  }
+
+  /**
+   *  Utility getter to check if the user is enrolled in ANY course
+   *  If yes, we disable the Enroll button for all other courses
+   */
+  hasAnyActiveEnrollment(): boolean {
+    return this.upcomingCourses.some(course &#x3D;&gt; course.is_registered &#x3D;&#x3D;&#x3D; true);
+  }
+
+  enrollCourse(courseId: number, studentId: number) {
+    this.courseTypeService.enrollCourse(courseId, studentId).subscribe(
+      (response: any) &#x3D;&gt; {
+        console.log(&#x27;Enrollment successful&#x27;, response);
+        this.util.showToast(&#x27;Enrollment successful&#x27;, &#x27;success&#x27;, &#x27;bottom&#x27;);
+        
+        // Refresh courses or manually update the enrolled status
+        this.loadUpcomingCourses();
+      },
+      (error: any) &#x3D;&gt; {
+        console.error(&#x27;Error enrolling in course&#x27;, error);
+        this.util.showToast(&#x27;Error enrolling in course&#x27;, &#x27;danger&#x27;, &#x27;bottom&#x27;);
+      }
+    );
+  }
+
+  cancelCourse(courseId: number) {
+    this.courseTypeService.cancelCourse(courseId).subscribe(
+      (response: any) &#x3D;&gt; {
+        console.log(&#x27;Cancellation successful&#x27;, response);
+        this.util.showToast(&#x27;Cancellation successful&#x27;, &#x27;success&#x27;, &#x27;bottom&#x27;);
+        
+        // Refresh courses or manually update the enrolled status
+        this.loadUpcomingCourses();
+      },
+      (error: any) &#x3D;&gt; {
+        console.error(&#x27;Error cancelling course&#x27;, error);
+        this.util.showToast(&#x27;Error cancelling course&#x27;, &#x27;danger&#x27;, &#x27;bottom&#x27;);
+      }
+    );
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-header translucent&gt;
+  &lt;ion-toolbar&gt;
+    &lt;ion-title&gt;Course Details&lt;/ion-title&gt;
+  &lt;/ion-toolbar&gt;
+&lt;/ion-header&gt;
+
+&lt;ion-content fullscreen class&#x3D;&quot;timeline-content&quot;&gt;
+  &lt;!-- حاوية الهيدر مع صورة الخلفية والنص --&gt;
+  &lt;div class&#x3D;&quot;course-header-container&quot;&gt;
+    &lt;img
+      src&#x3D;&quot;https://images.unsplash.com/photo-1534126511673-b6899657816a?ixlib&#x3D;rb-1.2.1&amp;auto&#x3D;format&amp;fit&#x3D;crop&amp;w&#x3D;600&amp;q&#x3D;80&quot;
+      alt&#x3D;&quot;Course Image&quot;
+      class&#x3D;&quot;course-header-img&quot;
+    /&gt;
+    &lt;div class&#x3D;&quot;course-header-overlay&quot;&gt;
+      &lt;h2&gt;Course Name&lt;/h2&gt;
+      &lt;p&gt;This is a short description highlighting the course features and objectives.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;ion-list&gt;
+    &lt;ion-item *ngFor&#x3D;&quot;let course of upcomingCourses&quot;  &gt;
+    &lt;div  &gt;
+      &lt;!-- عنوان الكارد / المعلومات الرئيسية --&gt;
+      &lt;ion-item lines&#x3D;&quot;none&quot;         [disabled]&#x3D;&quot;!course.is_registered &amp;&amp; hasAnyActiveEnrollment()&quot; class&#x3D;&quot;timelin4e-item-content&quot;&gt;
+        &lt;!-- التاريخ (يمكن وضعه في بداية العنصر أو نهايته حسب الحاجة) --&gt;
+        &lt;div slot&#x3D;&quot;start&quot;         class&#x3D;&quot;timeline-date&quot;&gt;
+          24/FEB 14:00 -15;00
+        &lt;/div&gt;
+
+        &lt;!-- صورة المحاضر أو شعار الدورة --&gt;
+        &lt;ion-avatar slot&#x3D;&quot;start&quot; class&#x3D;&quot;timeline-avatar&quot;&gt;
+          &lt;img
+            src&#x3D;&quot;https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib&#x3D;rb-1.2.1&amp;auto&#x3D;format&amp;fit&#x3D;crop&amp;w&#x3D;100&amp;q&#x3D;80&quot;
+            alt&#x3D;&quot;Instructor Image&quot;
+          /&gt;
+        &lt;/ion-avatar&gt;
+
+
+
+
+
+
+        &lt;!-- النص الرئيسي: اسم الدورة، الموقع، السعة، إلخ --&gt;
+        &lt;ion-label class&#x3D;&quot;timeline-text&quot;&gt;
+            &lt;h2&gt;{{ course.instructor }}&lt;/h2&gt;
+            &lt;div class&#x3D;&quot;course-details-horizontal&quot; style&#x3D;&quot;display: flex; justify-content: space-between; align-items: center;&quot;&gt;
+              &lt;p&gt;&lt;b&gt;Location:&lt;/b&gt; {{ course.location }}&lt;/p&gt;
+                  &lt;ion-button *ngIf&#x3D;&quot;!course.is_registered&quot; fill&#x3D;&quot;solid&quot; color&#x3D;&quot;success&quot; slot&#x3D;&quot;end&quot;   [disabled]&#x3D;&quot;hasAnyActiveEnrollment()&quot;  (click)&#x3D;&quot;enrollCourse(course.id, 1)&quot;&gt; Enroll&lt;/ion-button&gt;
+                  &lt;ion-button *ngIf&#x3D;&quot;course.is_registered&quot; fill&#x3D;&quot;solid&quot; color&#x3D;&quot;danger&quot; slot&#x3D;&quot;end&quot; (click)&#x3D;&quot;cancelCourse(course.registration_id)&quot;&gt;Cancel&lt;/ion-button&gt;
+            &lt;/div&gt;
+
+          &lt;!-- مؤشّر السعة (Segments) --&gt;
+          &lt;div class&#x3D;&quot;capacity-indicator&quot;&gt;
+            &lt;div
+              *ngFor&#x3D;&quot;let i of [0,1,2,3,4,5,6,7,8,9]&quot;
+              class&#x3D;&quot;capacity-segment&quot;
+              [class.filled]&#x3D;&quot;i &lt; getUsedSegments(10, course.capacity)&quot;
+            &gt;&lt;/div&gt;
+            &lt;span class&#x3D;&quot;capacity-text&quot;&gt;
+              {{ getUsedSegments(5, course.capacity) }}/10
+            &lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/ion-label&gt;
+      &lt;/ion-item&gt;
+
+      &lt;!-- محتوى إضافي في الكارد: زر التسجيل وغيره --&gt;
+   
+    &lt;/div&gt;
+  &lt;/ion-item&gt;
+
+  &lt;/ion-list&gt;
+
+
+
+&lt;/ion-content&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./my-courses-details.page.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.course-header-container {
+  position: relative;
+  width: 100%;
+  height: 250px; /* يمكنك تغيير الارتفاع حسب الحاجة */
+  overflow: hidden; /* لإخفاء أي جزء خارج الإطار */
+  margin-bottom: 1rem;
+}
+
+/* صورة الهيدر */
+.course-header-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* لضبط الصورة مع الحفاظ على تناسبها */
+  display: block;
+}
+
+/* طبقة شفافة فوق الصورة لإظهار النص */
+.course-header-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5); /* خلفية شبه شفافة */
+  color: #fff;
+  padding: 1rem;
+}
+
+.course-header-overlay h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.course-header-overlay p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* بطاقة المواعيد */
+.schedule-card {
+  margin: 0 1rem 1rem;
+  border-radius: 12px;
+  /* يمكنك إضافة مزيد من التأثيرات مثل box-shadow */
+}
+
+/* تنسيق العناصر داخل القائمة */
+.schedule-item {
+  --ion-item-background: #fff;
+  --padding-start: 0.75rem;
+  --inner-padding-end: 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* تنسيق النص داخل العنصر */
+.schedule-item ion-label h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.schedule-item ion-label p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+/* التوافق مع مختلف الشاشات */
+.timeline-content {
+  --ion-background-color: #f7f7f7;
+  padding: 1rem;
+}
+
+/* حاوية الهيدر */
+.course-header-container {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.course-header-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.success{
+  background-color: #28a745;
+}
+.course-header-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1));
+  color: #fff;
+  padding: 1rem;
+}
+
+.course-header-overlay h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.course-header-overlay p {
+  margin: 0.5rem 0 0;
+  font-size: 1rem;
+}
+
+/* تايملاين العرض */
+.timeline {
+  position: relative;
+  padding-left: 30px;
+}
+
+.timeline::before {
+  content: &#x27;&#x27;;
+  position: absolute;
+  top: 0;
+  left: 15px;
+  width: 2px;
+  height: 100%;
+  background: #ccc;
+}
+
+/* كل عنصر من التايملاين */
+.timeline-item {
+  position: relative;
+  background: #fff;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-item::before {
+  content: &#x27;&#x27;;
+  position: absolute;
+  top: 20px;
+  left: -30px;
+  width: 12px;
+  height: 12px;
+  background: #28a745;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+/* التاريخ في الزاوية اليمنى العلوية */
+.timeline-date {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 0.8rem;
+  color: #555;
+  background: rgba(215, 214, 214, 0.9);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* محتوى عنصر التايملاين */
+.timeline-item-content {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.timeline-avatar {
+  margin-right: 1rem;
+}
+
+.timeline-text {
+  flex: 1;
+}
+
+.timeline-text h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.timeline-text p {
+  margin: 0.2rem 0;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* مؤشر السعة */
+.capacity-indicator {
+  display: flex;
+  gap: 6px; /* المسافة بين الأجزاء */
+  margin-top: 0.5rem; /* مسافة علوية بسيطة */
+}
+
+.capacity-segment {
+  width: 20px;           /* عرض الجزء */
+  height: 10px;          /* ارتفاع الجزء */
+  background-color: #ccc; /* اللون الرمادي للأجزاء الفارغة */
+  border-radius: 4px;     /* لتنعيم الحواف */
+  transition: background-color 0.3s ease;
+}
+
+.capacity-segment.filled {
+  background-color: #28a745; /* اللون الأخضر للأجزاء المملوءة */
+}
+.active-enrollment{
+  background-color: #28a745;
+  box-shadow: inset 0 0 0 2px #bd0808;
+}
+
+/* لضمان التوافق (Responsive) */
+@media (max-width: 768px) {
+  .course-header-container {
+    height: 200px;
+  }
+
+  .timeline-item {
+    padding: 0.8rem;
+  }
+
+  .timeline-text h2 {
+    font-size: 1rem;
+  }
+
+  .timeline-text p {
+    font-size: 0.85rem;
+  }
+}
+.registered-bg {
+  background-color: #ff0000; /* for example, a light red background */
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-header translucent>  <ion-toolbar>    <ion-title>Course Details</ion-title>  </ion-toolbar></ion-header><ion-content fullscreen class="timeline-content">  <!-- حاوية الهيدر مع صورة الخلفية والنص -->  <div class="course-header-container">    <img      src="https://images.unsplash.com/photo-1534126511673-b6899657816a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"      alt="Course Image"      class="course-header-img"    />    <div class="course-header-overlay">      <h2>Course Name</h2>      <p>This is a short description highlighting the course features and objectives.</p>    </div>  </div>  <ion-list>    <ion-item *ngFor="let course of upcomingCourses"  >    <div  >      <!-- عنوان الكارد / المعلومات الرئيسية -->      <ion-item lines="none"         [disabled]="!course.is_registered && hasAnyActiveEnrollment()" class="timelin4e-item-content">        <!-- التاريخ (يمكن وضعه في بداية العنصر أو نهايته حسب الحاجة) -->        <div slot="start"         class="timeline-date">          24/FEB 14:00 -15;00        </div>        <!-- صورة المحاضر أو شعار الدورة -->        <ion-avatar slot="start" class="timeline-avatar">          <img            src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"            alt="Instructor Image"          />        </ion-avatar>        <!-- النص الرئيسي: اسم الدورة، الموقع، السعة، إلخ -->        <ion-label class="timeline-text">            <h2>{{ course.instructor }}</h2>            <div class="course-details-horizontal" style="display: flex; justify-content: space-between; align-items: center;">              <p><b>Location:</b> {{ course.location }}</p>                  <ion-button *ngIf="!course.is_registered" fill="solid" color="success" slot="end"   [disabled]="hasAnyActiveEnrollment()"  (click)="enrollCourse(course.id, 1)"> Enroll</ion-button>                  <ion-button *ngIf="course.is_registered" fill="solid" color="danger" slot="end" (click)="cancelCourse(course.registration_id)">Cancel</ion-button>            </div>          <!-- مؤشّر السعة (Segments) -->          <div class="capacity-indicator">            <div              *ngFor="let i of [0,1,2,3,4,5,6,7,8,9]"              class="capacity-segment"              [class.filled]="i < getUsedSegments(10, course.capacity)"            ></div>            <span class="capacity-text">              {{ getUsedSegments(5, course.capacity) }}/10            </span>          </div>        </ion-label>      </ion-item>      <!-- محتوى إضافي في الكارد: زر التسجيل وغيره -->       </div>  </ion-item>  </ion-list></ion-content></div>'
+    var COMPONENTS = [{'name': 'AddNewCardPage', 'selector': 'app-add-new-card'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPage', 'selector': 'app-auth'},{'name': 'BookmarkPage', 'selector': 'app-bookmark'},{'name': 'CategoriesPage', 'selector': 'app-categories'},{'name': 'ChatsPage', 'selector': 'app-chats'},{'name': 'CountryCodePickerPage', 'selector': 'app-country-code-picker'},{'name': 'CourseDetailsPage', 'selector': 'app-course-details'},{'name': 'CreatePinPage', 'selector': 'app-create-pin'},{'name': 'CurriculcumPage', 'selector': 'app-curriculcum'},{'name': 'EditProfilePage', 'selector': 'app-edit-profile'},{'name': 'EReceiptPage', 'selector': 'app-e-receipt'},{'name': 'FillProfilePage', 'selector': 'app-fill-profile'},{'name': 'FilterPage', 'selector': 'app-filter'},{'name': 'FingerPrintPage', 'selector': 'app-finger-print'},{'name': 'ForgotPasswordPage', 'selector': 'app-forgot-password'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InboxPage', 'selector': 'app-inbox'},{'name': 'InviteFriendsPage', 'selector': 'app-invite-friends'},{'name': 'LanguagesPage', 'selector': 'app-languages'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'MentorDetailsPage', 'selector': 'app-mentor-details'},{'name': 'MyCoursesDetailsPage', 'selector': 'app-my-courses-details'},{'name': 'MyCoursesDetailsPage', 'selector': 'app-my-courses-details'},{'name': 'MyCoursesPage', 'selector': 'app-my-courses'},{'name': 'NotificationSettingsPage', 'selector': 'app-notification-settings'},{'name': 'NotificationsPage', 'selector': 'app-notifications'},{'name': 'OnlineCoursesPage', 'selector': 'app-online-courses'},{'name': 'PaymentMethodsPage', 'selector': 'app-payment-methods'},{'name': 'PaymentOptionsPage', 'selector': 'app-payment-options'},{'name': 'PaymentSuccessModalPage', 'selector': 'app-payment-success-modal'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterPage', 'selector': 'app-register'},{'name': 'RemoveBookmarkModalPage', 'selector': 'app-remove-bookmark-modal'},{'name': 'ReviewsPage', 'selector': 'app-reviews'},{'name': 'SearchPage', 'selector': 'app-search'},{'name': 'SecurityPage', 'selector': 'app-security'},{'name': 'SuccessPage', 'selector': 'app-success'},{'name': 'TabsPage', 'selector': 'app-tabs'},{'name': 'TermsPage', 'selector': 'app-terms'},{'name': 'TopCoursesPage', 'selector': 'app-top-courses'},{'name': 'TopMentorsPage', 'selector': 'app-top-mentors'},{'name': 'TransactionPage', 'selector': 'app-transaction'},{'name': 'VideoCallPage', 'selector': 'app-video-call'},{'name': 'VideoPlayerPage', 'selector': 'app-video-player'},{'name': 'ViewCertificatePage', 'selector': 'app-view-certificate'},{'name': 'WelcomePage', 'selector': 'app-welcome'},{'name': 'WriteReviewsPage', 'selector': 'app-write-reviews'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'MyCoursesDetailsPage-1'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'MyCoursesDetailsPage-1.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

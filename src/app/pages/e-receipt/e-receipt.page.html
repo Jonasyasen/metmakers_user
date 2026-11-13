@@ -1,0 +1,82 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : E-Learning-1 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button color="dark" (click)="onBack()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>E-Receipt</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="dark" id="context-menu-trigger">
+        <ion-icon slot="icon-only" name="ellipsis-horizontal-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-popover trigger="context-menu-trigger" triggerAction="click">
+      <ng-template>
+        <ion-content class="ion-padding">
+          <ion-item lines="none" class="context-menu-btn">
+            <ion-icon slot="end" name="paper-plane-outline" color="dark"></ion-icon>
+            <ion-label>Share</ion-label>
+          </ion-item>
+          <ion-item lines="none" class="context-menu-btn">
+            <ion-icon slot="end" name="cloud-download-outline"></ion-icon>
+            <ion-label>Download</ion-label>
+          </ion-item>
+          <ion-item lines="none" class="context-menu-btn">
+            <ion-icon slot="end" name="print-outline"></ion-icon>
+            <ion-label>Print</ion-label>
+          </ion-item>
+        </ion-content>
+      </ng-template>
+    </ion-popover>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="e-recepit-screen">
+    <div class="qr-code">
+      <img src="assets/images/images/qr.png" alt="" class="img">
+    </div>
+
+    <div class="inline-info">
+      <ion-label class="name">Name</ion-label>
+      <ion-label class="title">John Cannery</ion-label>
+    </div>
+    <div class="inline-info">
+      <ion-label class="name">Email</ion-label>
+      <ion-label class="title">johncannery@mail.com</ion-label>
+    </div>
+    <div class="inline-info">
+      <ion-label class="name">Course</ion-label>
+      <ion-label class="title">{{ (name.length>20)? (name | slice:0:20)+'..':(name) }}</ion-label>
+    </div>
+    <div class="inline-info">
+      <ion-label class="name">Category</ion-label>
+      <ion-label class="title">Graphics Design</ion-label>
+    </div>
+    <div class="break"></div>
+    <div class="inline-info">
+      <ion-label class="name">Transaction ID</ion-label>
+      <ion-label class="title">SK345680976</ion-label>
+    </div>
+    <div class="inline-info">
+      <ion-label class="name">Price</ion-label>
+      <ion-label class="title">₹52.22</ion-label>
+    </div>
+    <div class="inline-info">
+      <ion-label class="name">Date</ion-label>
+      <ion-label class="title">Aug 30, 2022 / 09:00 PM</ion-label>
+    </div>
+    <div class="inline-info">
+      <ion-label class="name">Status</ion-label>
+      <ion-label class="paid">Paid</ion-label>
+    </div>
+  </div>
+</ion-content>

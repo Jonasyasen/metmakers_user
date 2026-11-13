@@ -1,0 +1,127 @@
+<ion-header>
+  <ion-toolbar class="custom-toolbar">
+
+    <!-- زر الرجوع -->
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" fill="clear">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <!-- العنوان -->
+    <ion-title>{{ selectedTypeName || 'Course Details' }}</ion-title>
+
+    <!-- الأيقونة -->
+    <ion-buttons slot="end">
+      <img 
+      [src]="'assets/images/courses_icons/' + selectedTypeName + '.png'"
+        alt="Course Icon" 
+        class="header-icon"
+      />
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+<ion-content                fullscreen >
+
+  <!-- Header -->
+
+
+
+  <!-- Segments Tabs -->
+  <ion-segment
+    [(ngModel)]="selectedTab"
+    (ionChange)="onSegmentChanged($event)"
+    scrollable
+    class="course-segment"
+  >
+    <ion-segment-button value="schedule">
+      Schedule
+    </ion-segment-button>
+    <ion-segment-button value="modules">
+      Modules
+    </ion-segment-button>
+ 
+    <ion-segment-button value="certificate">
+      Certificate
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Content for each tab -->
+  <ng-container [ngSwitch]="selectedTab">
+
+    <!-- 1. Schedule (Course cards as is) -->
+    <ion-list *ngSwitchCase="'schedule'" class="course-list">
+      <ion-item *ngFor="let course of upcomingCourses" lines="none" [ngClass]="{ 'disabled-item': shouldDisableCourse(course) }">
+        <div class="course-card">
+          <div class="card-header">
+            <!-- instructor avatar as full-height block -->
+            <img
+              src="https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_640.png"
+              class="instructor-avatar" />
+        
+            <div class="card-details">
+              <h2>{{ course.instructor }}</h2>
+              <p><ion-icon name="location-outline"></ion-icon> {{ course.location }}</p>
+              <p><ion-icon name="calendar-outline"></ion-icon> 
+                {{ formatCourseDate(course.startdatetime, course.enddatetime) }}
+              </p>
+            </div>
+            
+            <ion-button
+            *ngIf="!course.is_registered"
+            size="small"
+            class="custom-enroll-button"
+            (click)="enrollCourse(course.id, 1)">
+            Enroll
+          </ion-button>
+          
+            <ion-button
+              *ngIf="course.is_registered"
+              fill="outline"
+              size="small"
+              color="danger"
+              (click)="cancelCourse(course.registration_id)">
+              Cancel
+            </ion-button>
+        
+            <!-- capacity info under the button -->
+            <div class="capacity-info">
+              <ion-icon name="people-outline"></ion-icon>
+              <span>{{ course.enrolled_students }} / {{ course.capacity }}</span>
+            </div>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <!-- 2. Modules -->
+    <ion-list *ngSwitchCase="'modules'" class="course-list">
+      <ion-item *ngFor="let m of modules" lines="none">
+        <ion-icon slot="start" name="play-circle-outline"></ion-icon>
+        <ion-label>{{ m.title }}</ion-label>
+      </ion-item>
+    </ion-list>
+
+    <!-- 3. Tests -->
+    <ion-list *ngSwitchCase="'tests'" class="course-list">
+      <ion-item *ngFor="let t of tests" lines="none">
+        <ion-icon slot="start" name="checkbox-outline"></ion-icon>
+        <ion-label>{{ t.name }}</ion-label>
+      </ion-item>
+    </ion-list>
+
+    <!-- 4. Certificate Display -->
+    <div *ngSwitchCase="'certificate'" class="certificate-container">
+      <ion-button    expand="block" (click)="viewCertificate()">
+        View Certificate
+      </ion-button>
+    </div>
+
+  </ng-container>
+
+</ion-content>

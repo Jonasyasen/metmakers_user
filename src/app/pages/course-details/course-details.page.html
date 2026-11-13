@@ -1,0 +1,204 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : E-Learning-1 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-content>
+  <div class="course-details-screen">
+    <div class="course-detail-cover" [ngStyle]="{'background-image': 'url('+image+')'}">
+      <div class="overlay">
+        <div class="back-btn" (click)="onBack()">
+          <ion-icon name="arrow-back-outline" color="light"></ion-icon>
+        </div>
+      </div>
+    </div>
+    <div class="course-content">
+      <div class="play-btn">
+        <ion-icon name="play-circle-outline" color="light"></ion-icon>
+      </div>
+      <ion-card mode="ios" class="top-card-content">
+        <div class="header">
+          <ion-label class="lbl">{{type}} </ion-label>
+          <ion-label class="star"> <ion-icon name="star" color="warning"></ion-icon> 4.2 </ion-label>
+        </div>
+        <ion-label class="name">
+          {{ (name.length>35)? (name | slice:0:35)+'..':(name) }}
+        </ion-label>
+        <div class="time-content">
+          <div class="prefix">
+            <div class="content">
+              <ion-icon name="videocam-outline" color="dark"></ion-icon>
+              <ion-label class="lbl">25 Class</ion-label>
+            </div>
+            <div class="line"></div>
+            <div class="content">
+              <ion-icon name="time-outline" color="dark"></ion-icon>
+              <ion-label class="lbl">42 Hours</ion-label>
+            </div>
+          </div>
+          <ion-label class="price">₹152</ion-label>
+        </div>
+        <div class="segment-controls">
+          <div
+            [class]="selectedSegments == 'about' ? 'active-btn ion-activatable ripple-parent':'deactive-btn ion-activatable ripple-parent'"
+            (click)="changeSegments('about')">
+            <ion-ripple-effect></ion-ripple-effect>
+            <ion-label class="lbl">About</ion-label>
+          </div>
+          <div
+            [class]="selectedSegments == 'curriculcum' ? 'active-btn ion-activatable ripple-parent':'deactive-btn ion-activatable ripple-parent'"
+            (click)="changeSegments('curriculcum')">
+            <ion-ripple-effect></ion-ripple-effect>
+            <ion-label class="lbl">Curriculcum</ion-label>
+          </div>
+        </div>
+
+        <div class="about-content" *ngIf="selectedSegments == 'about'">
+          <ion-label class="lbl">
+            A graphic design course typically covers a wide range of topics, including both theoretical and practical
+            aspects of graphic design.
+          </ion-label>
+          <ion-label class="lbl">
+            Design principles: This includes topics such as color theory, typography, layout, composition, and visual
+            hierarchy.
+            Software skills: Most graphic design courses include instruction on the use of popular design software such
+            as Adobe Photoshop, Illustrator, and InDesign.
+            Design history: Students may study the evolution of design over time, with a focus on key movements and
+            designers who have had a significant impact on the field.
+          </ion-label>
+        </div>
+
+        <div class="curriculcum-content" *ngIf="selectedSegments == 'curriculcum'">
+          <div class="header-title">
+            <ion-label class="lbl">
+              Section 01 - <span class="active">Introductions</span>
+            </ion-label>
+            <ion-label class="lbl">
+              <span class="active">55 Mins.</span>
+            </ion-label>
+          </div>
+
+          <div class="curriculcum-list">
+            <div class="curriculcum-content-data" *ngFor="let item of util.curriculcumList;">
+              <div class="prefix">
+                <div class="number">
+                  <ion-label class="time">
+                    {{item.number}}
+                  </ion-label>
+                </div>
+                <div class="name-content">
+                  <ion-label class="title">
+                    {{ (item.name.length>25)? (item.name | slice:0:25)+'..':(item.name) }}
+                  </ion-label>
+                  <ion-label class="total-time"> {{item.time}} </ion-label>
+                </div>
+              </div>
+              <ion-icon name="play-circle" color="primary" class="play-btn-curriculcum"></ion-icon>
+            </div>
+          </div>
+        </div>
+      </ion-card>
+
+      <ion-card mode="ios" class="bottom-content">
+        <div class="main-top-title">
+          <ion-label class="title">Mentor</ion-label>
+        </div>
+
+        <div class="mentor-info">
+          <div class="prefix">
+            <div class="mentor-cover-image" [ngStyle]="{'background-image': 'url(assets/images/avatar/2.jpg)'}"
+              (click)="onMentorDetails()"></div>
+            <div class="name-content" (click)="onMentorDetails()">
+              <ion-label class="title-mentor">John Cannery</ion-label>
+              <ion-label class="type-mentor"> {{type}} </ion-label>
+            </div>
+          </div>
+          <ion-icon name="chatbubble-ellipses-outline" class="mentor-message" color="dark"></ion-icon>
+        </div>
+
+        <div class="main-top-title">
+          <ion-label class="title">What You’ll Get</ion-label>
+        </div>
+        <div class="more-info" (click)="onPage('curriculcum')">
+          <ion-icon name="layers-outline" color="dark" class="icon-data"></ion-icon>
+          <ion-label class="info-lbl">25 Lessons</ion-label>
+        </div>
+        <div class="more-info">
+          <ion-icon name="phone-portrait-outline" color="dark" class="icon-data"></ion-icon>
+          <ion-label class="info-lbl">Access Mobile, Desktop & TV</ion-label>
+        </div>
+        <div class="more-info">
+          <ion-icon name="bar-chart-outline" color="dark" class="icon-data"></ion-icon>
+          <ion-label class="info-lbl">Beginner Level</ion-label>
+        </div>
+        <div class="more-info">
+          <ion-icon name="musical-notes-outline" color="dark" class="icon-data"></ion-icon>
+          <ion-label class="info-lbl">Audio Book</ion-label>
+        </div>
+        <div class="more-info">
+          <ion-icon name="thunderstorm-outline" color="dark" class="icon-data"></ion-icon>
+          <ion-label class="info-lbl">Lifetime Access</ion-label>
+        </div>
+        <div class="more-info">
+          <ion-icon name="cube-outline" color="dark" class="icon-data"></ion-icon>
+          <ion-label class="info-lbl">100 Quizzes</ion-label>
+        </div>
+        <div class="more-info">
+          <ion-icon name="reader-outline" color="dark" class="icon-data"></ion-icon>
+          <ion-label class="info-lbl">Certificate of Completion</ion-label>
+        </div>
+
+        <div class="main-top-title">
+          <ion-label class="title">Reviews</ion-label>
+          <ion-label class="btn" (click)="onPage('reviews')">See All <ion-icon name="chevron-forward-outline"
+              color="primary"></ion-icon></ion-label>
+        </div>
+
+        <div class="reviews-list">
+          <ion-row class="reviews-content" *ngFor="let item of util.userList.slice(0,5)">
+            <ion-col size="2">
+              <div class="user-cover-image" [ngStyle]="{'background-image': 'url('+item.image+')'}"></div>
+            </ion-col>
+            <ion-col size="10">
+              <div class="name-content">
+                <div class="header">
+                  <ion-label class="title"> {{item.name}} </ion-label>
+                  <ion-label class="rate"><ion-icon name="star" color="warning"></ion-icon> 4.5 </ion-label>
+                </div>
+                <ion-label class="desc">
+                  The Course is Very Good dolor sit amet, consect tur adipiscing elit. Naturales divitias dixit parab
+                  les esse, quod parvo
+                </ion-label>
+                <div class="bottom-rate">
+                  <div class="content">
+                    <ion-icon name="heart" color="danger"></ion-icon>
+                    <ion-label class="lbl">652</ion-label>
+                  </div>
+                  <div class="break"></div>
+                  <div class="content">
+                    <ion-icon name="time-outline" color="dark"></ion-icon>
+                    <ion-label class="lbl">1 Months Ago</ion-label>
+                  </div>
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div class="next-btn-login ion-activatable ripple-parent" [style.width.%]="100" (click)="onPage('payment-methods')">
+      <ion-ripple-effect></ion-ripple-effect>
+      <ion-label class="lbl">Enroll Course - ₹152</ion-label>
+      <div class="btn">
+        <ion-icon name="arrow-forward-outline" color="primary"></ion-icon>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-footer>

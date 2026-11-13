@@ -1,0 +1,192 @@
+.timeline-content {
+  --ion-background-color: #f0f2f5;
+  padding: 0;
+}
+
+.course-header-container {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+
+.course-header-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7);
+}
+
+.course-header-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  color: #fff;
+}
+
+.course-header-overlay h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.course-header-overlay p {
+  margin: 0.2rem 0 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.course-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;     /* المسافة الرأسية بين كل كارت */
+  padding: 0.5rem 0;}
+
+.course-card {
+  margin-bottom: 0.3rem;
+  padding: 0.8rem;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+background-color: #f0f2f5;
+}
+
+.card-header {
+  display: flex;
+  align-items: stretch;
+  gap: 0.75rem;
+}
+
+.avatar-wrapper {
+  background-color: #8e44ad;
+  padding: 4px;
+  border-radius: 8px;
+}
+.instructor-avatar {
+ // width: 80px;              /* fixed width */
+  height: 80px;             /* match the height of .card-header */
+  object-fit: cover;
+  border-radius: 8px;       /* small corner radius, remove if you want a perfect rectangle */
+  flex-shrink: 0;           /* prevent it from shrinking */
+}
+
+
+.card-details {
+  flex: 1;                  /* take all remaining space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* vertically center text if heights differ slightly */
+}
+
+
+
+
+
+
+.capacity-info {
+  position: absolute;
+  bottom: 0.8rem;         /* tuck above card’s bottom padding */
+  right: 1.8rem;          /* align under the button */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.75rem;
+  color: #444;
+}
+
+
+
+
+
+.course-segment {
+  ion-segment-button {
+    --background: transparent;
+    --color: #444;
+  }
+  ion-segment-button[aria-checked="true"] {
+    --background: var(--ion-color-warning);
+    --color: #000;
+  }
+}
+
+/* plus your ::ng-deep or normal selectors, now they’ll apply */
+:host ::ng-deep ion-segment-button[aria-checked="true"] {
+  --background: var(--ion-color-warning) !important;
+  --color: #000 !important;
+}
+
+
+
+
+
+
+
+.card-details h2 {
+  margin: 0;
+  font-size: 1rem;
+  color: #222;
+}
+
+.card-details p {
+  margin: 0.15rem 0;
+  font-size: 0.8rem;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.capacity-bar {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-top: 0.6rem;
+}
+
+.capacity-segment {
+  width: 12px;
+  height: 6px;
+  border-radius: 2px;
+  background: #e0e0e0;
+}
+
+.capacity-segment.filled {
+  background: #feda00;
+}
+
+.capacity-bar span {
+  margin-left: auto;
+  font-size: 0.7rem;
+  color: #444;
+}
+.custom-toolbar {
+  --background: #f8dd15;
+  padding: 0px;
+}
+
+
+
+.header-icon {
+  width: 82px;
+ 
+  border-radius: 50%;
+  background-color: #f8dd15;
+  padding: 4px;
+  object-fit: contain;
+ // border: 2px solid white;
+}
+ion-button.custom-enroll-button::part(native) {
+  background-color: #f8dd15 !important; // خلفية
+  color: rgb(0, 0, 0) !important;              // لون النص
+  font-weight: bold;
+  border-radius: 8px;
+}
+.gray-background {
+  --background: #f0f2f5 !important;
+  background: #f0f2f5 !important; // fallback if needed
+}
+.disabled-item {
+  opacity: 0.4;
+  pointer-events: none;
+  filter: grayscale(100%);
+}

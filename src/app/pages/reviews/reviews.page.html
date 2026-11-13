@@ -1,0 +1,88 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : E-Learning-1 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="dark">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Reviews</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="reviews-screen">
+    <div class="top-content-rating">
+      <ion-label class="total-rate">4.8</ion-label>
+      <div class="star-rate-list">
+        <ion-icon name="star" color="warning"></ion-icon>
+        <ion-icon name="star" color="warning"></ion-icon>
+        <ion-icon name="star" color="warning"></ion-icon>
+        <ion-icon name="star" color="warning"></ion-icon>
+        <ion-icon name="star-half" color="warning"></ion-icon>
+      </div>
+      <ion-label class="review-count-lbl">Based on 448 Reviews</ion-label>
+    </div>
+    <ion-segment value="pizza" mode="md" [scrollable]="true" color="secondary">
+      <ion-segment-button value="pizza">
+        <ion-label>Excellect</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="pasta">
+        <ion-label>Good</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Average">
+        <ion-label>Average</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Below">
+        <ion-label>Below Average</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+    <div class="reviews-list">
+      <ion-row class="reviews-content" *ngFor="let item of util.userList;">
+        <ion-col size="2">
+          <div class="user-cover-image" [ngStyle]="{'background-image': 'url('+item.image+')'}"></div>
+        </ion-col>
+        <ion-col size="10">
+          <div class="name-content">
+            <div class="header">
+              <ion-label class="title"> {{item.name}} </ion-label>
+              <ion-label class="rate"><ion-icon name="star" color="warning"></ion-icon> 4.5 </ion-label>
+            </div>
+            <ion-label class="desc">
+              The Course is Very Good dolor sit amet, consect tur adipiscing elit. Naturales divitias dixit parab
+              les esse, quod parvo
+            </ion-label>
+            <div class="bottom-rate">
+              <div class="content">
+                <ion-icon name="heart" color="danger"></ion-icon>
+                <ion-label class="lbl">652</ion-label>
+              </div>
+              <div class="break"></div>
+              <div class="content">
+                <ion-icon name="time-outline" color="dark"></ion-icon>
+                <ion-label class="lbl">1 Months Ago</ion-label>
+              </div>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <div class="next-btn-login ion-activatable ripple-parent" [style.width.%]="100" (click)="writeReview()">
+      <ion-ripple-effect></ion-ripple-effect>
+      <ion-label class="lbl">Write a Review</ion-label>
+      <div class="btn">
+        <ion-icon name="arrow-forward-outline" color="primary"></ion-icon>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-footer>

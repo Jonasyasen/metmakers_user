@@ -1,0 +1,38 @@
+<ion-content class="ion-padding" color="light">
+
+
+
+  <!-- Loading State -->
+  <div *ngIf="loading" class="loading-spinner">
+    <ion-spinner></ion-spinner>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
+
+  <!-- Main Content -->
+  <div *ngIf="selected === 'completed' && !loading && !error">
+    <div class="course-type-grid">
+      <div class="course-type-item"
+           *ngFor="let item of courstypeesList; trackBy: trackById"
+           (click)="setCourseType(item.id, item.name)">
+
+        <div class="circle-icon-wrapper">
+          <div class="circle-icon">
+            <img [src]="'assets/images/courses_icons/' + item.name + '.png'"
+                 [alt]="item.name"
+                 (error)="handleImageError($event)" />
+          </div>
+        <!--   <div class="badge">3</div>-->
+        </div>
+
+        <!-- Label with name and ID for debug -->
+        <p class="label">{{ item.name }}
+        </p>
+
+      </div>
+    </div>
+  </div>
+</ion-content>

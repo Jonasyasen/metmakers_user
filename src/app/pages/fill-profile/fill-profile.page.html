@@ -1,0 +1,71 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : E-Learning-1 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="dark">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Fill Your Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="profile-screen">
+    <div class="edit-profile-content">
+      <div class="img-item">
+        <img src="assets/images/images/user.png" alt="" class="img-tag">
+        <div class="edit-btn" (click)="presentActionSheet()">
+          <ion-icon name="create-outline"></ion-icon>
+        </div>
+      </div>
+    </div>
+
+    <ion-item lines="none" class="item-content">
+      <ion-icon slot="start" name="person-outline"></ion-icon>
+      <ion-input type="text" placeholder="Fulll Name"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="item-content">
+      <ion-icon slot="start" name="person-outline"></ion-icon>
+      <ion-input type="text" placeholder="Nick Name"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="item-content">
+      <ion-icon slot="start" name="calendar-outline"></ion-icon>
+      <ion-input type="date" placeholder="Date Of Birth"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="item-content">
+      <ion-icon slot="start" name="mail-outline"></ion-icon>
+      <ion-input type="email" placeholder="Email"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="item-content">
+      <ion-label class="ccode">{{ccode}}</ion-label>
+      <ion-input type="number" placeholder="(+91) 963 - 852 7896"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="item-content">
+      <ion-label class="lbl">Gender</ion-label>
+      <ion-select value="peperoni" placeholder="Gender">
+        <ion-select-option value="peperoni">Male</ion-select-option>
+        <ion-select-option value="hawaii">Female</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <div class="next-btn-login ion-activatable ripple-parent" [style.width.%]="100" (click)="onLogin()">
+      <ion-ripple-effect></ion-ripple-effect>
+      <ion-label class="lbl">Continue</ion-label>
+      <div class="btn">
+        <ion-icon name="arrow-forward-outline" color="primary"></ion-icon>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,69 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : E-Learning-1 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="login-register-screen">
+    <div class="logo-content">
+      <img src="assets/images/images/logo.png" alt="" class="img">
+    </div>
+    <ion-label class="title">Let's Sign In.!</ion-label>
+    <ion-label class="sub-title">Login to Your account to continue your courses</ion-label>
+
+    <div class="form-content">
+      <ion-item lines="none" class="item-content">
+        <ion-icon slot="start" name="mail-outline"></ion-icon>
+        <ion-input type="email" placeholder="Email"></ion-input>
+      </ion-item>
+      <ion-item lines="none" class="item-content">
+        <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+        <ion-input [type]="passwordView == false ? 'password' :'text' " placeholder="Password"></ion-input>
+        <ion-icon slot="end" [name]="passwordView == false ?'eye-outline' :'eye-off-outline'"
+          (click)="toggePassword()"></ion-icon>
+      </ion-item>
+
+      <div class="extra-contnet">
+        <ion-item lines="none" class="checkbox-content">
+          <ion-label class="lbl">Remember Me</ion-label>
+          <ion-checkbox slot="start" mode="md"></ion-checkbox>
+        </ion-item>
+        <ion-label class="reset" (click)="onReset()">Forgot Password?</ion-label>
+      </div>
+
+      <div class="next-btn-login ion-activatable ripple-parent" [style.width.%]="100" (click)="onLogin()">
+        <ion-ripple-effect></ion-ripple-effect>
+        <ion-label class="lbl">Sign In</ion-label>
+        <div class="btn">
+          <ion-icon name="arrow-forward-outline" color="primary"></ion-icon>
+        </div>
+      </div>
+    </div>
+
+    <ion-label class="or-lbl">Or Continue With</ion-label>
+    <div class="social-btn">
+      <div class="logo-content ion-activatable ripple-parent">
+        <ion-ripple-effect></ion-ripple-effect>
+        <ion-icon name="logo-google" color="danger"></ion-icon>
+      </div>
+      <div class="logo-content ion-activatable ripple-parent">
+        <ion-ripple-effect></ion-ripple-effect>
+        <ion-icon name="logo-twitter" color="tertiary"></ion-icon>
+      </div>
+      <div class="logo-content ion-activatable ripple-parent">
+        <ion-ripple-effect></ion-ripple-effect>
+        <ion-icon name="logo-apple" color="dark"></ion-icon>
+      </div>
+    </div>
+
+    <ion-label class="register-lbl" (click)="onRegister()"> Don't have an Account? <span class="active">Sign Up</span>
+    </ion-label>
+  </div>
+</ion-content>

@@ -1,0 +1,72 @@
+.course-type-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); // ← 4 أعمدة دائمًا
+  gap: 10px 7px;
+  padding: 24px 16px;
+  justify-items: center;
+  align-items: start;
+}
+
+.course-type-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  width: 90px;
+  user-select: none;
+
+  &:hover {
+    transform: scale(1.07);
+  }
+}
+
+.circle-icon-wrapper {
+  position: relative;
+  width: 72px;
+  height: 72px;
+}
+
+.circle-icon {
+  width: 72px;
+  height: 72px;
+  background-color: #fbde07;
+  border-radius: 22%; // نعومة أجمل
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.1);
+}
+
+.circle-icon img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: #ff3b30;
+  color: #fff;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.label {
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #333;
+  text-align: center;
+  max-width: 90px;
+  line-height: 1.2;
+  word-break: break-word;
+}

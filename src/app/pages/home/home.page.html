@@ -1,0 +1,42 @@
+<ion-header class="ion-no-border"></ion-header>
+
+<ion-content class="ion-no-padding">
+  <!-- Split Header Section with Photo and Logo -->
+  <div class="split-header">
+    <div class="photo-container">
+      <img [src]="studentPhoto" alt="Student Photo" class="student-photo">
+    </div>
+    <div class="logo-container">
+      <img src="https://kommunikasjon.ntb.no/data/images/00386/e13af02a-52b6-4701-8766-f0a0d9fab213-w_720.png" alt="School Logo" class="school-logo">
+    </div>
+  </div>
+
+  <!-- Student Info and QR Code side by side -->
+  <div class="info-qr-section">
+    <div class="student-info">
+     <!-- <h1 class="student-name">{{ firstName }} {{ lastName }}</h1>-->
+      <h1 class="student-name">Abdullah Hammoud</h1>
+      <p class="student-email">{{ email }}</p>
+      <p class="student-department">{{ department }} -  {{ faculty }}</p>
+    </div>
+    <div class="qr-code-box">
+      <img [src]="qrCodeUrl" alt="Student QR Code" class="qr-code-inline">
+    </div>
+  </div>
+  
+
+  <div class="competencies-section">
+    <div class="grid-container">
+      <div class="grid-row" *ngFor="let row of validCompetenciesChunked">
+        <div class="grid-item" *ngFor="let competency of row">
+          <img 
+            [src]="'assets/images/courses_icons/' + competency.course__course_type__name + '.png'" 
+            [alt]="competency.course__course_type__name" 
+            class="competency-icon"
+          />
+          <span class="competency-name">{{ competency.course__course_type__name }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

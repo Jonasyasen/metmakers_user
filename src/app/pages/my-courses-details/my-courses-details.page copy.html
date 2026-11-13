@@ -1,0 +1,71 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Course Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="timeline-content">
+  <!-- حاوية الهيدر مع صورة الخلفية والنص -->
+  <div class="course-header-container">
+    <img
+      src="https://images.unsplash.com/photo-1534126511673-b6899657816a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+      alt="Course Image"
+      class="course-header-img"
+    />
+    <div class="course-header-overlay">
+      <h2>Course Name</h2>
+      <p>
+        This is a short description highlighting the course features and
+        objectives.
+      </p>
+    </div>
+  </div>
+
+  <!-- قسم الـ Timeline -->
+  <div class="timeline">
+    <!-- نكرّر الكارد بناءً على الدورات القادمة -->
+    <ion-card class="timeline-item" *ngFor="let course of upcomingCourses">
+      <!-- عنوان الكارد / المعلومات الرئيسية -->
+      <ion-item lines="none" class="timeline-item-content">
+        <!-- التاريخ (يمكن وضعه في بداية العنصر أو نهايته حسب الحاجة) -->
+        <div slot="start" class="timeline-date">
+          course.date 
+        </div>
+
+        <!-- صورة المحاضر أو شعار الدورة -->
+        <ion-avatar slot="start" class="timeline-avatar">
+          <img
+            src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
+            alt="Instructor Image"
+          />
+        </ion-avatar>
+
+        <!-- النص الرئيسي: اسم الدورة، الموقع، السعة، إلخ -->
+        <ion-label class="timeline-text">
+          <h2>{{ course.title }}</h2>
+          <p>Location: {{ course.location }}</p>
+          <p>Capacity: {{ course.capacity }} - Registered: 10</p>
+
+          <!-- مؤشّر السعة (Segments) -->
+          <div class="capacity-indicator">
+            <div
+              *ngFor="let i of [0,1,2,3,4,5,6,7,8,9]"
+              class="capacity-segment"
+              [class.filled]="i < getUsedSegments(10, course.capacity)"
+            ></div>
+            <span class="capacity-text">
+              {{ getUsedSegments(10, course.capacity) }}/10
+            </span>
+          </div>
+        </ion-label>
+      </ion-item>
+
+      <!-- محتوى إضافي في الكارد: زر التسجيل وغيره -->
+      <ion-card-content>
+        <ion-button color="success" fill="solid" size="small">
+          Enrol
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

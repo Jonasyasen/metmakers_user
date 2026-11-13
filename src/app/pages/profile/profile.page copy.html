@@ -1,0 +1,69 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : E-Learning-1 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios">
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="user-profile-screen">
+    <ion-card mode="ios" class="profile-content">
+      <div class="cover-image-top">
+        <div class="user-cover-image" [ngStyle]="{'background-image': 'url(assets/images/avatar/2.jpg)'}"></div>
+        <ion-label class="name">Richard G. Oneal</ion-label>
+        <ion-label class="email">johncannery@mail.com</ion-label>
+      </div>
+
+      <ion-item class="item-content" lines="none" detail="" (click)="onPage('edit-profile')">
+        <ion-icon slot="start" name="person-outline"></ion-icon>
+        <ion-label class="lbl">Edit Profile</ion-label>
+      </ion-item>
+
+      <ion-item class="item-content" lines="none" detail="" (click)="onPage('payment-options')">
+        <ion-icon slot="start" name="card-outline"></ion-icon>
+        <ion-label class="lbl">Payment Option</ion-label>
+      </ion-item>
+
+      <ion-item class="item-content" lines="none" detail="" (click)="onPage('notification-settings')">
+        <ion-icon slot="start" name="notifications-outline"></ion-icon>
+        <ion-label class="lbl">Notifications</ion-label>
+      </ion-item>
+
+      <ion-item class="item-content" lines="none" detail="" (click)="onPage('security')">
+        <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+        <ion-label class="lbl">Secutiry</ion-label>
+      </ion-item>
+
+      <ion-item class="item-content" lines="none" detail="" (click)="onPage('languages')">
+        <ion-icon slot="start" name="language-outline"></ion-icon>
+        <ion-label class="lbl">Language</ion-label>
+      </ion-item>
+
+      <ion-item class="item-content" lines="none" detail="">
+        <ion-icon slot="start" name="moon-outline"></ion-icon>
+        <ion-label class="lbl">Dark Mode</ion-label>
+      </ion-item>
+
+      <ion-item class="item-content" lines="none" detail="" (click)="onPage('terms')">
+        <ion-icon slot="start" name="document-lock-outline"></ion-icon>
+        <ion-label class="lbl">Terms & Conditions</ion-label>
+      </ion-item>
+
+      <ion-item class="item-content" lines="none" detail="" (click)="onPage('terms')">
+        <ion-icon slot="start" name="help-outline"></ion-icon>
+        <ion-label class="lbl">Help Center</ion-label>
+      </ion-item>
+
+      <ion-item class="item-content" lines="none" detail="" (click)="onPage('invite-friends')">
+        <ion-icon slot="start" name="mail-outline"></ion-icon>
+        <ion-label class="lbl">Invite Friends</ion-label>
+      </ion-item>
+    </ion-card>
+  </div>
+</ion-content>

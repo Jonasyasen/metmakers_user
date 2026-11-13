@@ -1,0 +1,48 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : E-Learning-1 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="dark">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Set Your FingerPrint</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="finger-print-screen">
+    <ion-label class="title">
+      Add a Fingerprint to Make your Account more Secure
+    </ion-label>
+
+    <div class="filter-print">
+      <img src="assets/images/images/fingerprint.png" alt="" class="img">
+    </div>
+
+    <ion-label class="title">
+      Please Put Your Finger on the Fingerprint Scanner to get Started.
+    </ion-label>
+    <ion-row class="btns">
+      <ion-col size="6" (click)="onHome()">
+        <div class="btn-skip">
+          <ion-label class="lbl">Skip</ion-label>
+        </div>
+      </ion-col>
+      <ion-col size="6">
+        <div class="next-btn ion-activatable ripple-parent" (click)="onHome()" [style.width.%]="100">
+          <ion-label class="lbl">Get Started</ion-label>
+          <div class="btn">
+            <ion-icon name="arrow-forward-outline" color="primary"></ion-icon>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

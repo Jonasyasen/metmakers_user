@@ -1,0 +1,39 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : E-Learning-1 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="dark">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Top Mentors</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onSearch()" color="dark">
+        <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="top-mentors-screen">
+    <ion-row class="top-mentors-list" *ngFor="let item of util.userList;"
+      (click)="onMentorDetails(item.name,item.image)">
+      <ion-col size="3">
+        <div class="mentor-cover-image" [ngStyle]="{'background-image': 'url('+item.image+')'}"></div>
+      </ion-col>
+      <ion-col size="9">
+        <div class="name-content">
+          <ion-label class="name"> {{item.name}} </ion-label>
+          <ion-label class="subject"> {{item.subject}} </ion-label>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

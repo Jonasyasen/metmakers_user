@@ -1,0 +1,58 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : E-Learning-1 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="md">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="dark">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Invite Friends</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="invite-screen">
+    <ion-card mode="ios" class="card-content">
+      <ion-row class="invite-item" *ngFor="let item of util.userList.slice(0,5);let i = index;">
+        <ion-col size="2">
+          <div class="user-cover" [ngStyle]="{'background-image': 'url('+item.image+')'}"></div>
+        </ion-col>
+        <ion-col size="7">
+          <div class="name-content">
+            <ion-label class="name"> {{item.name}} </ion-label>
+            <ion-label class="number"> (+91) 852 - 963 - 7458 </ion-label>
+          </div>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button expand="block" fill="solid" size="small" color="primary" shape="round" *ngIf="i % 2 != 0">
+            Invite
+          </ion-button>
+          <ion-button expand="block" fill="solid" size="small" color="light" shape="round" *ngIf="i % 2 == 0">
+            Invite
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+    <ion-label class="title-share">Share Invite Via</ion-label>
+    <div class="btn-list">
+      <ion-button fill="clear" size="small">
+        <ion-icon slot="icon-only" name="logo-facebook" color="tertiary"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" size="small">
+        <ion-icon slot="icon-only" name="logo-twitter" color="warning"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" size="small">
+        <ion-icon slot="icon-only" name="logo-google" color="danger"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" size="small">
+        <ion-icon slot="icon-only" name="logo-whatsapp" color="success"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

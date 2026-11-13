@@ -1,0 +1,54 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : E-Learning-1 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="dark">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Write a Reviews</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="write-review-screen">
+    <ion-card mode="ios" class="purchase-top-content">
+      <ion-item lines="none" class="item-content">
+        <ion-thumbnail slot="start">
+          <img src="assets/images/courses/cp3.png" />
+        </ion-thumbnail>
+        <ion-label class="lbl">
+          <p class="type">Graphic Design</p>
+          <p class="name">C Programming For Beginners</p>
+        </ion-label>
+      </ion-item>
+    </ion-card>
+
+    <ion-label class="main-title">Add Photo (or) Video </ion-label>
+
+    <ion-card mode="ios" class="upload-photo-cards" (click)="presentActionSheet()">
+      <ion-icon name="cloud-upload" color="secondary"></ion-icon>
+      <ion-label class="lbl">Click here to Upload</ion-label>
+    </ion-card>
+
+    <ion-label class="main-title">Write you Review </ion-label>
+
+    <ion-card mode="ios" class="textarea-content">
+      <ion-textarea rows="10" placeholder="Would you like to write anything about this Product?"></ion-textarea>
+    </ion-card>
+
+    <div class="next-btn-login ion-activatable ripple-parent" [style.width.%]="100">
+      <ion-ripple-effect></ion-ripple-effect>
+      <ion-label class="lbl">Submit Review</ion-label>
+      <div class="btn">
+        <ion-icon name="arrow-forward-outline" color="primary"></ion-icon>
+      </div>
+    </div>
+  </div>
+</ion-content>

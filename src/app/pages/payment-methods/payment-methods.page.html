@@ -1,0 +1,78 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : E-Learning-1 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="dark">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Payment Methods</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="payments-screen">
+    <ion-card mode="ios" class="purchase-top-content">
+      <ion-item lines="none" class="item-content">
+        <ion-thumbnail slot="start">
+          <img src="assets/images/courses/cp3.png" />
+        </ion-thumbnail>
+        <ion-label class="lbl">
+          <p class="type">Graphic Design</p>
+          <p class="name">C Programming For Beginners</p>
+        </ion-label>
+      </ion-item>
+    </ion-card>
+    <ion-label class="main-title">Select the Payment Methods you Want to Use</ion-label>
+
+    <ion-radio-group name="auto" value="PayPal">
+      <ion-card mode="ios" class="radio-item-content">
+        <ion-item lines="none">
+          <ion-label class="lbl">PayPal</ion-label>
+          <ion-radio value="PayPal" mode="md" slot="start" color="secondary"></ion-radio>
+        </ion-item>
+      </ion-card>
+      <ion-card mode="ios" class="radio-item-content">
+        <ion-item lines="none">
+          <ion-label class="lbl">Google Pay</ion-label>
+          <ion-radio value="gPay" mode="md" slot="start" color="secondary"></ion-radio>
+        </ion-item>
+      </ion-card>
+      <ion-card mode="ios" class="radio-item-content">
+        <ion-item lines="none">
+          <ion-label class="lbl">Apple Pay</ion-label>
+          <ion-radio value="aPay" mode="md" slot="start" color="secondary"></ion-radio>
+        </ion-item>
+      </ion-card>
+      <ion-card mode="ios" class="radio-item-content">
+        <ion-item lines="none">
+          <ion-label class="lbl">**** **** **** 9638</ion-label>
+          <ion-radio value="card" mode="md" slot="start" color="secondary"></ion-radio>
+        </ion-item>
+      </ion-card>
+    </ion-radio-group>
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="primary">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div class="next-btn-login ion-activatable ripple-parent" [style.width.%]="100" (click)="onSuccess()">
+      <ion-ripple-effect></ion-ripple-effect>
+      <ion-label class="lbl">Enroll Course - ₹152</ion-label>
+      <div class="btn">
+        <ion-icon name="arrow-forward-outline" color="primary"></ion-icon>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-footer>

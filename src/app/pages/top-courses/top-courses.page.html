@@ -1,0 +1,65 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : E-Learning-1 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="dark">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Popular Courses</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onSearch()" color="dark">
+        <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar mode="md">
+    <ion-segment [(ngModel)]="selected" (ionChange)="changeCourse()" mode="md" [scrollable]="true" color="secondary">
+      <ion-segment-button value="all">
+        <ion-label>All</ion-label>
+      </ion-segment-button>
+      <ion-segment-button [value]="item" *ngFor="let item of util.categories;">
+        <ion-label>{{item}}</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="top-course-screen">
+    <ion-card *ngFor="let item of coursesList;let i = index;" class="course-content-list" mode="ios"
+      (click)="onCourseDetails(item.link_name,item.image_url,selected)">
+      <ion-row>
+        <ion-col size="4" class="removed-space">
+          <div class="course-list-cover" [ngStyle]="{'background-image': 'url('+item.image_url+')'}"></div>
+        </ion-col>
+        <ion-col size="8">
+          <div class="name-content">
+            <div class="top-content">
+              <ion-label class="course-type"> {{selected}} </ion-label>
+              <ion-icon name="bookmark-outline" color="secondary"></ion-icon>
+            </div>
+            <ion-label class="name">
+              {{ (item.link_name.length>25)? (item.link_name | slice:0:25)+'..':(item.link_name) }}
+            </ion-label>
+            <div class="price-content">
+              <ion-label class="price">₹{{getDiscountedPrice(item.retail_price,10)}}</ion-label>
+              <ion-label class="discount">₹{{item.retail_price}}</ion-label>
+            </div>
+            <div class="extra-content">
+              <ion-label class="rate"><ion-icon name="star" color="warning"></ion-icon> 4.2 </ion-label>
+              <div class="line"></div>
+              <ion-label class="total">{{i+1}},85,22 Students</ion-label>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
+</ion-content>

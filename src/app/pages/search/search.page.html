@@ -1,0 +1,43 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : E-Learning-1 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="dark">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Search</ion-title>
+  </ion-toolbar>
+  <ion-toolbar mode="ios">
+    <div class="home-screen-toolbar-search">
+      <div class="prefix">
+        <ion-icon name="search-outline" color="medium"></ion-icon>
+        <ion-input type="text" placeholder="Graphic Design"></ion-input>
+      </div>
+      <div class="end-btn ion-activatable ripple-parent">
+        <ion-ripple-effect></ion-ripple-effect>
+        <ion-icon name="search-outline" color="light"></ion-icon>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="search-screen">
+    <div class="main-title">
+      <ion-label class="title">Recent Search</ion-label>
+      <ion-label class="btn">See All <ion-icon name="chevron-forward-outline" color="primary"></ion-icon> </ion-label>
+    </div>
+
+    <div class="cate-list" *ngFor="let item of util.categories;">
+      <ion-label class="name">{{item}}</ion-label>
+      <ion-icon name="close-outline" color="dark"></ion-icon>
+    </div>
+  </div>
+</ion-content>

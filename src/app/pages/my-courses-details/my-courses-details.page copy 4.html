@@ -1,0 +1,113 @@
+<ion-header translucent>
+  <ion-toolbar color="warning">
+    <ion-title>📚 Course Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="timeline-content">
+
+  <!-- Header -->
+  <div class="course-header-container">
+    <img 
+      src="https://images.unsplash.com/photo-1534126511673-b6899657816a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+      class="course-header-img"
+      alt="Course Image" />
+    <div class="course-header-overlay">
+      <h1>Course Name</h1>
+      <p>This course gives you hands-on skills and insight into modern tools and practices.</p>
+    </div>
+  </div>
+
+  <!-- Segments Tabs -->
+  <ion-segment
+    [(ngModel)]="selectedTab"
+    (ionChange)="onSegmentChanged($event)"
+    scrollable
+    class="course-segment"
+  >
+    <ion-segment-button value="schedule">
+      Schedule
+    </ion-segment-button>
+    <ion-segment-button value="modules">
+      Modules
+    </ion-segment-button>
+    <ion-segment-button value="tests">
+      Tests
+    </ion-segment-button>
+    <ion-segment-button value="certificate">
+      Certificate
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Content for each tab -->
+  <ng-container [ngSwitch]="selectedTab">
+
+    <!-- 1. Schedule (Course cards as is) -->
+    <ion-list *ngSwitchCase="'schedule'" class="course-list">
+      <ion-item *ngFor="let course of upcomingCourses" lines="none">
+        <div class="course-card">
+          <div class="card-header">
+            <!-- instructor avatar as full-height block -->
+            <img
+              src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
+              class="instructor-avatar" />
+        
+            <div class="card-details">
+              <h2>{{ course.instructor }}</h2>
+              <p><ion-icon name="location-outline"></ion-icon> {{ course.location }}</p>
+              <p><ion-icon name="calendar-outline"></ion-icon> 24 FEB | 14:00–15:00</p>
+            </div>
+        
+            <ion-button
+              *ngIf="!course.is_registered"
+              fill="outline"
+              size="small"
+              color="success"
+              (click)="enrollCourse(course.id, 1)">
+              Enroll
+            </ion-button>
+            <ion-button
+              *ngIf="course.is_registered"
+              fill="outline"
+              size="small"
+              color="danger"
+              (click)="cancelCourse(course.registration_id)">
+              Cancel
+            </ion-button>
+        
+            <!-- capacity info under the button -->
+            <div class="capacity-info">
+              <ion-icon name="people-outline"></ion-icon>
+              <span>5/{{ course.capacity }}</span>
+            </div>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <!-- 2. Modules -->
+    <ion-list *ngSwitchCase="'modules'" class="course-list">
+      <ion-item *ngFor="let m of modules" lines="none">
+        <ion-icon slot="start" name="play-circle-outline"></ion-icon>
+        <ion-label>{{ m.title }}</ion-label>
+      </ion-item>
+    </ion-list>
+
+    <!-- 3. Tests -->
+    <ion-list *ngSwitchCase="'tests'" class="course-list">
+      <ion-item *ngFor="let t of tests" lines="none">
+        <ion-icon slot="start" name="checkbox-outline"></ion-icon>
+        <ion-label>{{ t.name }}</ion-label>
+      </ion-item>
+    </ion-list>
+
+    <!-- 4. Certificate Display -->
+    <div *ngSwitchCase="'certificate'" class="certificate-container">
+      <ion-button    expand="block" (click)="viewCertificate()">
+        View Certificate
+      </ion-button>
+    </div>
+
+  </ng-container>
+
+</ion-content>
