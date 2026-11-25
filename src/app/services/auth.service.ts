@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tap, switchMap, catchError, finalize } from 'rxjs/operators';
 import { BehaviorSubject, EMPTY, Observable, of, throwError } from 'rxjs';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 const ACCESS_TOKEN_KEY = 'access_token';
 const REFRESH_TOKEN_KEY = 'refresh_token';
@@ -13,7 +14,7 @@ const REFRESH_TOKEN_KEY = 'refresh_token';
 export class AuthService {
   isAuthenticated: BehaviorSubject<string> = new BehaviorSubject<string>('');
   currentAccessToken = '';
-  url = 'http://127.0.0.1:8000/api/auth/';
+  url = `${environment.apiBaseUrl}/auth/`;
 
 
   constructor(private http: HttpClient, private router: Router) {
@@ -35,7 +36,7 @@ export class AuthService {
   
 
 
-  getNewAccessToken2(): Observable<{ token: string }> {
+  getNewAccessToken2(): Observable<{ access_token: string; refresh_token: string }> {
     const refreshToken = localStorage.getItem(REFRESH_TOKEN_KEY);
     
     if (!refreshToken) {
@@ -47,12 +48,11 @@ export class AuthService {
       withCredentials: true,
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${refreshToken}`
       })
     };
     console.log('Using refresh token:', refreshToken);
   
-    return this.http.post<{ token: string }>(`${this.url}refresh/`, { app: 'from ionic tabs' }, httpOptions).pipe(
+    return this.http.post<{ access_token: string; refresh_token: string }>(`${this.url}refresh-token/`, { refresh_token: refreshToken }, httpOptions).pipe(
       catchError(error => {
         this.cleanUpAfterLogout();
         return throwError(() => error);
@@ -71,7 +71,6 @@ export class AuthService {
       withCredentials: true,
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${refreshToken}`
       })
     };
   

@@ -8,6 +8,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras } from '@angular/router';
 import { UtilService } from 'src/app/services/util.service';
+import { CourseTypeService } from 'src/app/services/courses.service';
 
 @Component({
   selector: 'app-online-courses',
@@ -20,21 +21,31 @@ export class OnlineCoursesPage implements OnInit {
   coursesList: any[] = [];
   constructor(
     public util: UtilService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private courseService: CourseTypeService
   ) {
     this.route.queryParams.subscribe((data: any) => {
       console.log(data);
       this.name = data.name;
-      this.changeCourse();
+      this.loadCourses();
     });
   }
 
-  changeCourse() {
-    const index = Math.floor(Math.random() * ((this.util.coursesList.length - 1) - 0 + 1) + 0);
-    console.log('index=', index);
-    console.log(this.util.coursesList.length);
-    this.coursesList = this.util.coursesList[index].list;
-    console.log(this.coursesList);
+  loadCourses() {
+    this.courseService.getCourseTypes().subscribe({
+      next: (types) => {
+        const type = types.find((item) => item.name === this.name);
+        if (!type) {
+          this.coursesList = [];
+          return;
+        }
+        this.courseService.getCatalogCourses(type.id).subscribe({
+          next: (courses) => this.coursesList = courses,
+          error: (error) => { console.error('Unable to load courses.', error); this.coursesList = []; },
+        });
+      },
+      error: (error) => { console.error('Unable to load course categories.', error); this.coursesList = []; },
+    });
   }
 
   getDiscountedPrice(price: any, discount: any) {

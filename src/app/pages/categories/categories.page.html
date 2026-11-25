@@ -31,9 +31,9 @@
 <ion-content class="ion-padding">
   <div class="categories-screen">
     <ion-row>
-      <ion-col size="6" *ngFor="let item of util.topCategories;">
+      <ion-col size="6" *ngFor="let item of courseTypes;">
         <div class="cate-info" (click)="onCourseList(item.name)">
-          <img [src]="item.image" alt="" class="img">
+          <img [src]="item.image || 'assets/images/images/extra-image.png'" [alt]="item.name" class="img">
           <ion-label class="name"> {{item.name}} </ion-label>
         </div>
       </ion-col>

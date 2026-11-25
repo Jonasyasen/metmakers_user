@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 // Define the interface for the suggestion response
 export interface Suggestion {
@@ -16,7 +17,7 @@ export interface Suggestion {
 })
 export class SuggestReservationService {
 
-  private apiUrl = 'http://localhost:8000/api/machines/suggest-reservation/';  // Replace with your actual API endpoint
+  private apiUrl = `${environment.apiBaseUrl}/machines/suggest-reservation/`;
 
   constructor(private http: HttpClient) {}
 

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, forkJoin, map, switchMap } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 export interface CourseType {
   id: number;
@@ -28,7 +29,35 @@ export interface CourseByType {
   is_registered: boolean;
   enrolled_students:number;
   registration_id: number;
-  
+}
+
+export interface StudentInfo {
+  student_id: number;
+  first_name: string;
+  last_name: string;
+  email: string;
+  valid_competencies: { id: number; name: string }[];
+  invalid_competencies: { id: number; name: string }[];
+}
+
+export interface CatalogCourse {
+  id: number;
+  link_name: string;
+  image_url: string;
+  description: string;
+  retail_price: number;
+  type_name: string;
+  startdatetime: string;
+  location: string;
+  capacity: number;
+  enrolled_students: number;
+}
+
+export interface CanvasContent {
+  modules: { id: number; name: string; position: number; items: { id: number; title: string; item_type: string; url: string; page_url: string }[] }[];
+  pages: { id: number; title: string; body: string }[];
+  assignments: { id: number; name: string; points_possible: number | null }[];
+  quizzes: { id: number; title: string; points_possible: number | null }[];
 }
 
 export interface LaserReservationPayload {
@@ -50,8 +79,8 @@ export interface LaserReservation {
   providedIn: 'root'
 })
 export class CourseTypeService {
-  private apiUrl = 'http://localhost:8000/api/courses/course_type/';
-  private coursesByTypeUrl = 'http://localhost:8000/api/courses/upcoming_courses_by_type/';
+  private apiUrl = `${environment.apiBaseUrl}/courses/course_type/`;
+  private coursesByTypeUrl = `${environment.apiBaseUrl}/courses/upcoming_courses_by_type/`;
   private courseSelectedType: number | null = null;
 
   constructor(private http: HttpClient) {}
@@ -68,6 +97,36 @@ export class CourseTypeService {
     return this.http.get<CourseByType[]>(`${this.coursesByTypeUrl}${courseTypeId}/`);
   }
 
+  getCatalogCourses(courseTypeId: number): Observable<CatalogCourse[]> {
+    return forkJoin({
+      type: this.getCourseType(courseTypeId),
+      courses: this.getCoursesByType(courseTypeId),
+    }).pipe(map(({ type, courses }) => courses.map((course) => ({
+      id: course.id,
+      link_name: course.title,
+      image_url: type.image || this.fallbackImage(type.name),
+      description: course.description,
+      retail_price: 0,
+      type_name: type.name,
+      startdatetime: course.startdatetime,
+      location: course.location,
+      capacity: course.capacity,
+      enrolled_students: course.enrolled_students,
+    }))));
+  }
+
+  getFeaturedCatalogCourses(): Observable<CatalogCourse[]> {
+    return this.getCourseTypes().pipe(
+      map((types) => types.slice(0, 6)),
+      switchMap((types) => forkJoin(types.map((type) => this.getCatalogCourses(type.id)))),
+      map((groups) => groups.reduce((all, group) => all.concat(group), [])),
+    );
+  }
+
+  getCanvasContent(courseTypeId: number): Observable<CanvasContent> {
+    return this.http.get<CanvasContent>(`${environment.apiBaseUrl}/courses/course-types/${courseTypeId}/canvas-content/`);
+  }
+
   setCourseSelectedType(courseTypeId: number | null): void {
     this.courseSelectedType = courseTypeId;
   }
@@ -76,27 +135,35 @@ export class CourseTypeService {
     return this.courseSelectedType;
   }
 
+  private fallbackImage(name: string): string {
+    return `https://source.unsplash.com/800x500/?${encodeURIComponent(name + ' workshop')}`;
+  }
+
   enrollCourse(courseId: number, studentId: number): Observable<any> {
-    return this.http.post('http://localhost:8000/api/courses/course_registration/', {
+    return this.http.post(`${environment.apiBaseUrl}/courses/course_registration/`, {
       course: courseId,
       student: studentId
     });
   }
 
   cancelCourse(courseId: number): Observable<any> {
-    return this.http.delete(`http://localhost:8000/api/courses/course_registration/${courseId}/`);
+    return this.http.delete(`${environment.apiBaseUrl}/courses/course_registration/${courseId}/`);
   }
 
   getStudentInfo(studentId: number): Observable<any> {
-    const url = `http://localhost:8000/api/courses/student_info/${studentId}/`;
+    const url = `${environment.apiBaseUrl}/courses/student_info/${studentId}/`;
     const headers = {
       Authorization: `Bearer ${localStorage.getItem('access_token')}`
     };
     return this.http.get<any>(url, { headers });
   }
 
+  getCurrentStudentInfo(): Observable<StudentInfo> {
+    return this.http.get<StudentInfo>(`${environment.apiBaseUrl}/courses/student_info/me/`);
+  }
+
   reserveLaserCutter(data: LaserReservationPayload): Observable<any> {
-    const url = 'http://localhost:8000/api/machines/laser_reservation/';
+    const url = `${environment.apiBaseUrl}/machines/laser_reservation/`;
     const headers = {
       Authorization: `Bearer ${localStorage.getItem('access_token')}`
     };
@@ -104,7 +171,7 @@ export class CourseTypeService {
   }
 
   getLaserReservationsByDate(date: string): Observable<LaserReservation[]> {
-    const url = `http://localhost:8000/api/machines/laser_reservations_by_day/`;
+    const url = `${environment.apiBaseUrl}/machines/laser_reservations_by_day/`;
     const headers = {
       Authorization: `Bearer ${localStorage.getItem('access_token')}`
     };

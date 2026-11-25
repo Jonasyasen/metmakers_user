@@ -8,6 +8,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras } from '@angular/router';
 import { UtilService } from 'src/app/services/util.service';
+import { CourseType, CourseTypeService } from 'src/app/services/courses.service';
 
 @Component({
   selector: 'app-categories',
@@ -15,12 +16,18 @@ import { UtilService } from 'src/app/services/util.service';
   styleUrls: ['./categories.page.scss'],
 })
 export class CategoriesPage implements OnInit {
+  courseTypes: CourseType[] = [];
 
   constructor(
-    public util: UtilService
+    public util: UtilService,
+    private courseService: CourseTypeService
   ) { }
 
   ngOnInit() {
+    this.courseService.getCourseTypes().subscribe({
+      next: (types) => this.courseTypes = types,
+      error: (error) => console.error('Unable to load course categories.', error),
+    });
   }
 
   onBack() {

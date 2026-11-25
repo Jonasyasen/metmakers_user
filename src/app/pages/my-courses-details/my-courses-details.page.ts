@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { UtilService } from 'src/app/services/util.service';
 import { VideoPlayerPage } from '../video-player/video-player.page';
-import { CourseTypeService, CourseByType } from 'src/app/services/courses.service';
+import { CanvasContent, CourseTypeService, CourseByType } from 'src/app/services/courses.service';
 import { StateService } from 'src/app/services/state.service';
 
 @Component({
@@ -18,15 +18,9 @@ export class MyCoursesDetailsPage implements OnInit {
   public selectedTab: 'schedule' | 'modules' | 'tests' | 'certificate' = 'schedule';
   public selectedTypeName: string | null = null;
 
-  public modules = [
-    { title: 'Module 1: Introduction' },
-    { title: 'Module 2: Advanced Topics' },
-  ];
-
-  public tests = [
-    { name: 'اختبار منتصف الفصل' },
-    { name: 'اختبار نهائي' },
-  ];
+  public modules: CanvasContent['modules'] = [];
+  public tests: CanvasContent['quizzes'] = [];
+  public contentLoading = false;
 
   constructor(
     public util: UtilService,
@@ -44,6 +38,7 @@ export class MyCoursesDetailsPage implements OnInit {
       this.selectedType = id;
       if (id !== null) {
         this.loadUpcomingCourses();
+        this.loadLearningContent();
       }
     });
   
@@ -61,6 +56,7 @@ export class MyCoursesDetailsPage implements OnInit {
     if (type !== null) {
       this.selectedType = type;
       this.loadUpcomingCourses();
+      this.loadLearningContent();
     }
   }
 
@@ -95,6 +91,24 @@ export class MyCoursesDetailsPage implements OnInit {
         }
       );
     }
+  }
+
+  loadLearningContent() {
+    if (this.selectedType === null) return;
+    this.contentLoading = true;
+    this.courseTypeService.getCanvasContent(this.selectedType).subscribe({
+      next: (content) => {
+        this.modules = content.modules ?? [];
+        this.tests = content.quizzes ?? [];
+        this.contentLoading = false;
+      },
+      error: (error) => {
+        console.error('Error fetching learning content', error);
+        this.modules = [];
+        this.tests = [];
+        this.contentLoading = false;
+      },
+    });
   }
 
   getUsedSegments(registeredCount: number, capacity: number): number {

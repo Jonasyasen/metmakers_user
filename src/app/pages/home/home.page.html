@@ -1,42 +1,147 @@
+
 <ion-header class="ion-no-border"></ion-header>
 
-<ion-content class="ion-no-padding">
-  <!-- Split Header Section with Photo and Logo -->
-  <div class="split-header">
-    <div class="photo-container">
-      <img [src]="studentPhoto" alt="Student Photo" class="student-photo">
-    </div>
-    <div class="logo-container">
-      <img src="https://kommunikasjon.ntb.no/data/images/00386/e13af02a-52b6-4701-8766-f0a0d9fab213-w_720.png" alt="School Logo" class="school-logo">
-    </div>
-  </div>
+<ion-content [fullscreen]="true" class="student-id-content">
+  <main class="student-id-page">
 
-  <!-- Student Info and QR Code side by side -->
-  <div class="info-qr-section">
-    <div class="student-info">
-     <!-- <h1 class="student-name">{{ firstName }} {{ lastName }}</h1>-->
-      <h1 class="student-name">Abdullah Hammoud</h1>
-      <p class="student-email">{{ email }}</p>
-      <p class="student-department">{{ department }} -  {{ faculty }}</p>
-    </div>
-    <div class="qr-code-box">
-      <img [src]="qrCodeUrl" alt="Student QR Code" class="qr-code-inline">
-    </div>
-  </div>
-  
+    <!-- DIGITAL STUDENT ID CARD -->
+    <article class="id-card" aria-label="Digital Student ID">
 
-  <div class="competencies-section">
-    <div class="grid-container">
-      <div class="grid-row" *ngFor="let row of validCompetenciesChunked">
-        <div class="grid-item" *ngFor="let competency of row">
-          <img 
-            [src]="'assets/images/courses_icons/' + competency.course__course_type__name + '.png'" 
-            [alt]="competency.course__course_type__name" 
-            class="competency-icon"
-          />
-          <span class="competency-name">{{ competency.course__course_type__name }}</span>
+      <!-- University branding -->
+      <header class="id-card__header">
+        <img
+          src="https://kommunikasjon.ntb.no/data/images/00386/e13af02a-52b6-4701-8766-f0a0d9fab213-w_720.png"
+          alt="University logo"
+          class="school-logo"
+        />
+
+        <div class="id-card__type">
+          <span>STUDENT</span>
+          <strong>DIGITAL ID</strong>
+        </div>
+      </header>
+
+      <div class="id-card__body">
+
+        <!-- Profile -->
+        <div class="id-card__profile">
+
+          <div class="student-photo-frame">
+            <img
+              [src]="studentPhoto"
+              alt="Student portrait"
+              class="student-photo"
+            />
+          </div>
+
+          <div class="student-identity">
+            <span class="field-label">STUDENT NAME</span>
+
+            <h1 class="student-name">
+              {{ firstName }} {{ lastName }}
+            </h1>
+
+            <p class="student-department">
+              {{ department }}
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Academic details -->
+        <div class="id-card__details">
+
+          <div class="detail-field">
+            <span class="field-label">FACULTY</span>
+            <p>{{ faculty }}</p>
+          </div>
+
+          <div class="detail-field">
+            <span class="field-label">EMAIL ADDRESS</span>
+            <p class="student-email">{{ email }}</p>
+          </div>
+
+        </div>
+
+        <!-- QR Identification -->
+        <div class="id-card__scan">
+
+          <div class="scan-information">
+            <span class="field-label">
+              DIGITAL IDENTIFICATION
+            </span>
+
+            <h2>Student QR Code</h2>
+
+            <p>
+              Present this code when requested
+              for identification.
+            </p>
+          </div>
+
+          <div class="qr-code-frame">
+            <img
+              [src]="qrCodeUrl"
+              alt="Student QR code"
+              class="qr-code"
+            />
+          </div>
+
         </div>
       </div>
-    </div>
-  </div>
+
+      <!-- Card footer -->
+      <footer class="id-card__footer">
+        <div class="footer-brand">
+          <span class="footer-indicator"></span>
+          STUDENT IDENTIFICATION
+        </div>
+
+        <span class="footer-type">DIGITAL CARD</span>
+      </footer>
+    </article>
+
+    <!-- Competencies -->
+    <section
+      class="competencies-section"
+      *ngIf="validCompetenciesChunked?.length"
+      aria-labelledby="competencies-title"
+    >
+
+      <div class="section-heading">
+        <span class="section-eyebrow">ACADEMIC PROFILE</span>
+        <h2 id="competencies-title">Competencies</h2>
+        <p>Courses and areas of expertise</p>
+      </div>
+
+      <div class="competencies-grid">
+
+        <ng-container
+          *ngFor="let row of validCompetenciesChunked"
+        >
+          <div
+            class="competency-item"
+            *ngFor="let competency of row"
+          >
+
+            <div class="competency-icon-wrapper">
+              <img
+                [src]="'assets/images/courses_icons/' + competency.name + '.png'"
+                [alt]="competency.name"
+                class="competency-icon"
+                loading="lazy"
+              />
+            </div>
+
+            <span class="competency-name">
+              {{ competency.name }}
+            </span>
+
+          </div>
+        </ng-container>
+
+      </div>
+    </section>
+
+  </main>
 </ion-content>

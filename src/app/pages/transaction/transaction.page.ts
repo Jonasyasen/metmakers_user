@@ -1,12 +1,15 @@
 // transaction.page.ts
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { InventoryProduct, InventoryService } from 'src/app/services/inventory.service';
 
 interface ElectronicComponent {
+  id?: number;
   name: string;
   category: string;
   available: boolean;
   image: string;
   description: string;
+  availableQuantity?: number;
 }
 
 @Component({
@@ -15,7 +18,7 @@ interface ElectronicComponent {
   styleUrls: ['./transaction.page.scss'],
 })
 export class TransactionPage implements OnInit {
-  categories: string[] = ['All', 'Control Boards', 'Motors', 'Passive Components', 'Sensors', 'Displays', 'Wires & Connectors', 'Power Supplies'];
+  categories: string[] = ['All'];
   selectedCategory: string = 'All';
   searchTerm: string = '';
   userPhone: string = '';
@@ -146,8 +149,30 @@ export class TransactionPage implements OnInit {
   borrowQuantity: number = 1;
   userEmail: string = '';
 
+  constructor(private inventoryService: InventoryService) {}
+
   ngOnInit() {
-    this.applyFilters();
+    this.inventoryService.getProducts().subscribe({
+      next: (products) => {
+        this.allComponents = products.map((product: InventoryProduct) => ({
+          id: product.id,
+          name: product.name,
+          category: product.category,
+          available: product.available_units > 0,
+          image: product.image || 'assets/shapes.svg',
+          description: product.description,
+          availableQuantity: product.available_units,
+        }));
+        this.categories = ['All', ...Array.from(new Set(this.allComponents.map(item => item.category)))];
+        this.applyFilters();
+      },
+      error: (error) => {
+        console.error('Error fetching inventory products', error);
+        this.allComponents = [];
+        this.filteredComponents = [];
+        this.categories = ['All'];
+      },
+    });
   }
 
   applyFilters() {
@@ -177,6 +202,7 @@ export class TransactionPage implements OnInit {
   openModal(item: ElectronicComponent) {
     this.selectedItem = item;
     this.borrowQuantity = 1;
+    this.availableQuantity = item.availableQuantity ?? 0;
     this.userEmail = '';
     this.showModal = true;
   }

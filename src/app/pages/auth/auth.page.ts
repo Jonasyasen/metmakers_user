@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-auth',
@@ -66,7 +67,7 @@ export class AuthPage implements OnInit, OnDestroy {
                 accessToken: tokenResponse.accessToken
               };
     
-              this.http.post<{ access_token: string,refresh_token:string }>('http://localhost:8000/api/auth/login/', payload).subscribe({
+              this.http.post<{ access_token: string,refresh_token:string }>(`${environment.apiBaseUrl}/auth/login/`, payload).subscribe({
                 next: (response) => {
                   localStorage.setItem('access_token', response.access_token);
                   localStorage.setItem('refresh_token', response.refresh_token);
@@ -92,7 +93,7 @@ export class AuthPage implements OnInit, OnDestroy {
                     accessToken: popupTokenResponse.accessToken
                   };
     
-                  this.http.post('http://localhost:8000/api/auth/login/', payload).subscribe({
+                  this.http.post(`${environment.apiBaseUrl}/auth/login/`, payload).subscribe({
                     next: (response) => {
                       console.log('Login API response (from popup):', response);
                       console.log('1' ,response)

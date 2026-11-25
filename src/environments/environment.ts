@@ -6,5 +6,6 @@
   Copyright and Good Faith Purchasers © 2023-present initappz.
 */
 export const environment = {
-  production: false
+  production: false,
+  apiBaseUrl: 'http://localhost:8000/api'
 };

@@ -8,6 +8,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras } from '@angular/router';
 import { UtilService } from 'src/app/services/util.service';
+import { CatalogCourse, CourseTypeService } from 'src/app/services/courses.service';
 
 @Component({
   selector: 'app-top-courses',
@@ -15,20 +16,24 @@ import { UtilService } from 'src/app/services/util.service';
   styleUrls: ['./top-courses.page.scss'],
 })
 export class TopCoursesPage implements OnInit {
-  coursesList: any[] = [];
+  coursesList: CatalogCourse[] = [];
   selected: any = 'all';
   constructor(
-    public util: UtilService
+    public util: UtilService,
+    private courseService: CourseTypeService
   ) {
-    this.changeCourse();
+    this.loadCourses();
+  }
+
+  loadCourses() {
+    this.courseService.getFeaturedCatalogCourses().subscribe({
+      next: (courses) => this.coursesList = courses,
+      error: (error) => { console.error('Unable to load featured courses.', error); this.coursesList = []; },
+    });
   }
 
   changeCourse() {
-    const index = Math.floor(Math.random() * ((this.util.coursesList.length - 1) - 0 + 1) + 0);
-    console.log('index=', index);
-    console.log(this.util.coursesList.length);
-    this.coursesList = this.util.coursesList[index].list;
-    console.log(this.coursesList);
+    this.loadCourses();
   }
 
   getDiscountedPrice(price: any, discount: any) {

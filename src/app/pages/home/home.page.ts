@@ -120,16 +120,13 @@ export class HomePage implements OnInit {
   }
 
   fetchStudentData() {
-    const studentId = 1; // Replace with actual ID dynamically if needed
-    this.courseTypeService.getStudentInfo(studentId).subscribe({
+    this.courseTypeService.getCurrentStudentInfo().subscribe({
       next: (data: any) => {
-        this.firstName = data.student.first_name;
-        this.lastName = data.student.last_name;
-        this.email = data.student.email;
-        this.department = data.student.department;
-        this.faculty = data.student.faculty;
-        this.validCompetencies = data.competencies.valid;
-        this.invalidCompetencies = data.competencies.invalid;
+        this.firstName = data.first_name;
+        this.lastName = data.last_name;
+        this.email = data.email;
+        this.validCompetencies = data.valid_competencies;
+        this.invalidCompetencies = data.invalid_competencies;
 
         this.validCompetenciesChunked = this.chunkArray(this.validCompetencies, 4);
       },

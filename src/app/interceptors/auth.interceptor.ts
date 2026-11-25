@@ -5,6 +5,7 @@ import { catchError, switchMap, filter, take, finalize } from 'rxjs/operators';
 import { ToastController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -27,7 +28,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
     return next.handle(this.addToken(request)).pipe(
       catchError(error => {
-        if (error instanceof HttpErrorResponse && error.status === 403|| error.status === 403) {
+        if (error instanceof HttpErrorResponse && (error.status === 401 || error.status === 403)) {
           return this.handle401Error(request, next);
         } else if (error instanceof HttpErrorResponse && error.status === 402) {
           return this.handle402Error(error);
@@ -42,8 +43,10 @@ export class AuthInterceptor implements HttpInterceptor {
 
   private isInBlockedList(url: string): boolean {
     const blockedUrls = [
-      'http://127.0.0.1:8000/api/auth/login',
-      'http://127.0.0.1:8000/api/auth/logout'
+      `${environment.apiBaseUrl}/auth/login`,
+      `${environment.apiBaseUrl}/auth/logout`,
+      `${environment.apiBaseUrl}/auth/login/`,
+      `${environment.apiBaseUrl}/auth/logout/`
     ];
     return blockedUrls.includes(url);
   }
@@ -81,9 +84,12 @@ export class AuthInterceptor implements HttpInterceptor {
 
       return this.authService.getNewAccessToken2().pipe(
         switchMap((tokenResponse: any) => {
-          if (tokenResponse?.token) {
-            this.authService.storeAccessToken(tokenResponse.token);
-            this.refreshTokenSubject.next(tokenResponse.token);
+          if (tokenResponse?.access_token) {
+            this.authService.storeAccessToken(tokenResponse.access_token);
+            if (tokenResponse.refresh_token) {
+              localStorage.setItem('refresh_token', tokenResponse.refresh_token);
+            }
+            this.refreshTokenSubject.next(tokenResponse.access_token);
             return next.handle(this.addToken(request));
           }
           // If we couldn't get a new token, force logout
